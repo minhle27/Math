@@ -1,0 +1,47 @@
+\input{../Template/math.tex}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins}
+
+\definecolor{claimblue}{HTML}{315E81}
+\definecolor{claimbg}{HTML}{F0F5F9}
+\usepackage{setspace}
+\setstretch{1.4}
+
+% Syntax: \newtcbtheorem[init options]{EnvironmentName}{Display Name}{Box Options}{Reference Prefix}
+% The 'O{} m m m' tells LaTeX to expect 1 Optional and 3 Mandatory arguments:
+% {Title}{Label}{Source}
+\NewTColorBox[use counter=problem]{problem}{ O{} m m m }{
+    enhanced,
+    sharp corners,
+    frame hidden,
+    boxrule=0pt,
+    colback=claimbg,
+    borderline west={3pt}{0pt}{claimblue},
+    drop fuzzy shadow,
+    coltitle=claimblue,
+    fonttitle=\bfseries,
+    % Formats the title as: Problem X (Title). 
+    title={Problem \thetcbcounter\ifstrempty{#2}{}{ (#2)}.\ },
+    label={prob:#3}, % Automatically prefixes your label with 'prob:'
+    attach title to upper={\par\vspace{1ex}}, % Keeps the title inline with the text
+    % Places the source flush right at the bottom, without a dashed line
+    after upper={\ifstrempty{#4}{}{\par\vspace{1ex}\noindent\hfill\footnotesize\textit{Source: #4}}},
+    #1 % Allows you to pass optional tcolorbox settings if needed
+}
+
+\NewTColorBox{solution}{ O{} }{
+    enhanced,
+    breakable, 
+    frame hidden,
+    boxrule=0pt,
+    colback=white, 
+    borderline west={2pt}{0pt}{gray!40!white}, 
+    coltitle=black, 
+    fonttitle=\bfseries\itshape, 
+    title={Solution:},
+    attach title to upper={\par\vspace{1ex}},
+    after upper={\noindent\hfill $\square$},
+    #1
+}

@@ -1,0 +1,13 @@
+\usepackage{graphicx}
+
+% --- 2. The Auto-Loader Macro ---
+% This loops from number #1 to number #2.
+% It checks if "Problems/prob_X.tex" exists. If yes, it inputs it.
+\newcommand{\loadproblems}[2]{
+    \foreach \c in {#1,...,#2} {
+        \IfFileExists{problems/p\c.tex}{
+            \input{problems/p\c.tex}
+            \vspace{1cm} % Adds a nice gap between each problem
+        }{}
+    }
+}

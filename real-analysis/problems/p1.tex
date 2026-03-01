@@ -1,0 +1,18 @@
+\begin{problem}{}{}{Real Mathematical Analysis, Pugh, Ex.29 p.127}
+Let $\mathcal{T}$ be the collection of open subsets of a metric space $M$, and $\mathcal{K}$ the collection of closed subsets.
+Show that there is a bijection from $\mathcal{T}$ onto $\mathcal{K}$.
+\end{problem}
+
+\begin{solution}
+    Define \(f: \mathcal{T} \to \mathcal{K} \) by \(f(A) = A^c\). Since the complement
+    of an open set is closed, $f$ is well-defined.
+
+    Let \(A, B \in \mathcal{T}\), \(f(A) = f(B) \implies A^c = B^c \implies A = B\).
+    This means \(f\) is injective.
+
+    Let \(C \in \mathcal{K}\). Since \(C\) is closed, it follows that \(C^c\) is open.
+    We have \(f(C^c) = (C^c)^c = C\). So every closed set is hit by \(f\), which means that
+    \(f\) is surjective.
+
+    Therefore, \(f\) is bijective.
+\end{solution}
