@@ -1,0 +1,14 @@
+\begin{problem}{}{}{Real Mathematical Analysis, Pugh, Ex.46 p.129}
+Assume that $A, B$ are compact, disjoint, nonempty subsets of $M$. Prove that there are $a_0 \in A$ and $b_0 \in B$ such that for all $a \in A$ and $b \in B$ we have
+$$d(a_0, b_0) \le d(a,b).$$
+[The points $a_0, b_0$ are closest together.]
+\end{problem}
+
+\begin{solution}
+    Since \(A\), \(B\) are compact, it follows that \(A \times B\) is compact.
+    Since d is a metric, d is continuous. Therefore, \(d(A \times B)\) is a 
+    compact subset of \(\mathbb{R}\). This implies \(d(A \times B)\) is closed and bounded. 
+    Because \(d(A \times B)\) is a nonempty, closed, and bounded subset of \(\mathbb{R}\), it must contain its infimum. 
+    Therefore, there exists \(a_0\), \(b_0\) such that \(d(a_0, b_0) = \inf d(A \times B)\). 
+    \hfill $\square$
+\end{solution}
