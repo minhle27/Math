@@ -1,0 +1,37 @@
+\begin{problem}{}{}{Real Mathematical Analysis, Pugh, Ex.52 p.129}
+Let \((A_n)\) be a nested decreasing sequence of nonempty closed sets
+in the metric space \(M\).
+\begin{enumerate}
+    \item[(a)] If \(M\) is complete and \(\operatorname{diam} A_n \to 0 \) as \(n \to \infty\),
+          show that $\bigcap A_n$ is exactly one point.
+    \item[(b)] To what assertions do the sets $[n, \infty)$ provide counterexamples?
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}
+    \item[(a)] 
+    Let \(A = \bigcap A_n\). For each \(n \in \mathbb{N}\), \(A\) is a subset of \(A_n\), 
+    which implies that \(\operatorname{diam} A = 0\). Since distinct points lie 
+    at a positive distance from each other, \(A\) consists of at most one point. 
+    It remains to show that A is nonempty. 
+    
+    Since \(A_n\) is nonempty, for each \(n \in \mathbb{N} \) we can choose
+    \(a_n \in A_n\). Claim: \((a_n)\) is a Cauchy sequence. Let \(\epsilon > 0\). 
+    We can choose \(N \in \mathbb{N} \) such that \(\operatorname{diam} A_N < \epsilon\). 
+    It follows that for all \(k, n \ge N \) we have \(d_M(a_k, a_n) \leq \operatorname{diam}A_N < \epsilon \) since \(a_k, a_n \in A_N\). 
+    Therefore, \((a_n)\) is a Cauchy sequence. Since M is complete, \((a_n) \to p\), \(p \in M\). 
+    For each \(n \in \mathbb{N}\), the fact that \(A_n\) is closed and \((a_n)\) lies in \(A_n\), except possibly for finitely many terms,
+    implies that \(p \in A_n\). Thus, \(p \in A\) and \(A\) is shown to be nonempty.
+
+    Therefore, \(\bigcap A_n \) is exactly one point.
+    \hfill $\square$
+
+    \item[(b)]
+    In this part, the sequence of sets \(A_n = [n, \infty) \) is missing the condition that
+    \(\operatorname{diam}A_n \to 0\) as \(n \to \infty\). 
+    In fact, there is no real number \(x\) such that \(x \geq  n\) for all \(n \in \mathbb{N}\) by the Archimedean property. 
+    This implies that \(\bigcap A_n = \emptyset \).
+    \hfill $\square$
+\end{enumerate}
+\end{solution}
