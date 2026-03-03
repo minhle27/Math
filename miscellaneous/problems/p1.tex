@@ -1,0 +1,175 @@
+\begin{problem}{Natural Gradient}{}{Modified from CS 229 Stanford 2018 - Problem set 3}
+We consider the problem of fitting model parameters using gradient descent. Fitting model \\
+parameters using Maximum Likelihood is equivalent to minimizing the KL divergence between the data and the model.
+A nice property of KL divergence is that it is invariant to parametrization.
+However, the gradient w.r.t the model parameters (i.e, direction of steepest descent)
+is \emph{not invariant to parametrization}.
+
+This is where the \textbf{natural gradient} comes into picture. It is best introduced in contrast with the
+usual gradient descent. In the usual gradient descent, we first choose the direction by calculating
+the gradient of the MLE objective w.r.t the parameters, and then move a magnitude of step size
+(where size is measured in the parameter space) along that direction. Whereas in natural gradient,
+we first choose a divergence amount by which we would like to move, in the \(D_{\mathrm{KL}} \) sense. This
+eﬀectively gives us a perimeter around the current parameters (of some arbitrary shape), such
+that points along this perimeter correspond to distributions which are at an equal \(D_{\mathrm{KL}} \)-distance
+away from the current parameter. Among the set of all distributions along this perimeter, we
+move to the distribution that maximizes the objective (i.e minimize \(D_{\mathrm{KL}} \) between data and
+itself) the most. This approach makes the optimization process invariant to parametrization.
+That means, even if we chose a new arbitrary reparametrization, by starting from a particular
+distribution, we always descend down the same sequence of distributions towards the optimum.
+\begin{itemize}
+    \item[(a)] Derive the natural gradient update rule.
+    \item[(b)] Show natural gradient based optimization is actually equivalent to
+          Newton’s method for Generalized Linear Models.
+\end{itemize}
+
+\end{problem}
+
+\begin{solution}
+    \begin{itemize}
+
+        \item[(a)] The natural gradient update rule is:
+              \[
+                  d^* = \arg\max_d \ell(\theta + d) \quad \text{subject to} \quad D_{\text{KL}}(P_\theta || P_{\theta+d}) = c \quad (1)
+              \]
+
+              \begin{lemma}{Approximating $D_{\text{KL}}$ with Fisher Information}{fisher}
+                  \[
+                      D_{\text{KL}}(P_\theta || P_{\theta+d}) \approx \frac{1}{2} d^T \mathcal{I}(\theta) d
+                  \]
+              \end{lemma}
+
+              Consider the Taylor approximation of $\ell(\theta + d)$ around $\theta$:
+              \[
+                  \ell(\theta + d) \approx \ell(\theta) + d^T \nabla_{\theta'} \ell(\theta') \Big|_{\theta'=\theta}
+              \]
+
+              Plugging this approximation into (1), we get the following optimization problem:
+              \[
+                  d^* = \arg\max_d \ell(\theta) + d^T \nabla_{\theta'} \ell(\theta') \Big|_{\theta'=\theta} \quad \text{s.t.} \quad \frac{1}{2} d^T \mathcal{I}(\theta) d = c
+              \]
+
+              We optimize the Lagrangian $\mathcal{L}(d, \lambda)$:
+              \[
+                  \mathcal{L}(d, \lambda) = \ell(\theta) + d^T \nabla_{\theta'} \ell(\theta') \Big|_{\theta'=\theta} - \lambda \left[ \frac{1}{2} d^T \mathcal{I}(\theta) d - c \right]
+              \]
+
+              \begin{itemize}
+                  \item $\nabla_d \mathcal{L}(d, \lambda) = 0 \implies \nabla_{\theta'} \ell(\theta') \Big|_{\theta'=\theta} - \lambda \mathcal{I}(\theta) d = 0 \implies d = \frac{1}{\lambda} \mathcal{I}^{-1}(\theta) \nabla_{\theta'} \ell(\theta') \Big|_{\theta'=\theta}$
+                  \item $\nabla_\lambda \mathcal{L}(d, \lambda) = 0 \implies \frac{1}{2} d^T \mathcal{I}(\theta) d = c \implies d^T \mathcal{I}(\theta) d = 2c$
+              \end{itemize}
+
+              \begin{align*}
+                   & \implies d^T \nabla_{\theta'} \ell(\theta') \Big|_{\theta'=\theta} = 2c \implies \frac{1}{\lambda} \left( \nabla_{\theta'} \ell(\theta') \Big|_{\theta'=\theta} \right)^T \mathcal{I}^{-1}(\theta) \nabla_{\theta'} \ell(\theta') \Big|_{\theta'=\theta} = 2c                \\
+                   & \implies \lambda = \frac{1}{\sqrt{2c}} \sqrt{\left( \nabla_{\theta'} \ell(\theta') \Big|_{\theta'=\theta} \right)^T \mathcal{I}^{-1}(\theta) \nabla_{\theta'} \ell(\theta') \Big|_{\theta'=\theta}}                                                                          \\
+                   & \implies d^* = \frac{\sqrt{2c} \mathcal{I}^{-1}(\theta) \nabla_{\theta'} \ell(\theta') \Big|_{\theta'=\theta}}{\sqrt{\left( \nabla_{\theta'} \ell(\theta') \Big|_{\theta'=\theta} \right)^T \mathcal{I}^{-1}(\theta) \nabla_{\theta'} \ell(\theta') \Big|_{\theta'=\theta}}}
+              \end{align*}
+
+              \textbf{Proof of Lemma 1:}
+
+              The KL divergence can be split into two expectations:
+              \[
+                  D_{\text{KL}}(P_\theta || P_{\theta+d}) = \underbrace{\mathbb{E}_{x \sim P_\theta(x)} [\log P_\theta(x)]}_{A} - \underbrace{\mathbb{E}_{x \sim P_\theta(x)} [\log P_{\theta+d}(x)]}_{B}
+              \]
+
+              Treating $\theta$ as a fixed point, $A$ is constant. We perform a second-order Taylor Expansion on $B$ around $\theta$. Let $\tilde{\theta} = \theta + d$:
+              \begin{align*}
+                  B & = \mathbb{E}_{x \sim P_\theta(x)} [\log P_{\tilde{\theta}}(x)]                                                                                                                                                                                                                                                                             \\
+                    & \approx A + d^T \underbrace{\mathbb{E}_{x \sim P_\theta(x)} \left[ \nabla_{\theta'} \log P_{\theta'}(x) \Big|_{\theta'=\theta} \right]}_{\text{First-order term}} + \frac{1}{2} d^T \underbrace{\mathbb{E}_{x \sim P_\theta(x)} \left[ \nabla_{\theta'}^2 \log P_{\theta'}(x) \Big|_{\theta'=\theta} \right]}_{\text{Second-order term}} d
+              \end{align*}
+
+              \textbf{Step 1: Show the first-order term is zero.}
+              \begin{align*}
+                  \mathbb{E}_{x \sim P_\theta(x)} \left[ \nabla_{\theta'} \log P_{\theta'}(x) \Big|_{\theta'=\theta} \right] & = \mathbb{E}_{x \sim P_\theta(x)} \left[ \frac{\nabla_{\theta'} P_{\theta'}(x)}{P_{\theta'}(x)} \Bigg|_{\theta'=\theta} \right]         \\
+                                                                                                                             & = \int_{-\infty}^{\infty} P_\theta(x) \frac{\nabla_{\theta'} P_{\theta'}(x) \Big|_{\theta'=\theta}}{P_\theta(x)} dx                     \\
+                                                                                                                             & = \nabla_{\theta'} \left[ \int_{-\infty}^{\infty} P_{\theta'}(x) dx \right] \Bigg|_{\theta'=\theta} = \nabla_{\theta'}[1] = 0 \quad (*)
+              \end{align*}
+
+              \textbf{Step 2: Connect the second-order term to the Fisher Information Matrix $\mathcal{I}(\theta)$.}
+              By definition, and using the result from Step 1 $(*)$:
+              \begin{align*}
+                  \mathcal{I}(\theta) & = \text{Cov}_{x \sim P_\theta(x)} \left[ \nabla_{\theta'} \log P_{\theta'}(x) \Big|_{\theta'=\theta} \right]                                                                  \\
+                                      & = \mathbb{E}_{x \sim P_\theta(x)} \left[ \left(\nabla_{\theta'} \log P_{\theta'}(x)\right) \left(\nabla_{\theta'} \log P_{\theta'}(x)\right)^T \Big|_{\theta'=\theta} \right]
+              \end{align*}
+
+              Examining a single element $(i, j)$ of this matrix:
+              \begin{align*}
+                  [\mathcal{I}(\theta)]_{ij} & = \mathbb{E}_{x \sim P_\theta(x)} \left[ \left( \frac{1}{P_{\theta'}(x)} \right)^2 \frac{\partial P_{\theta'}(x)}{\partial \theta'_i} \frac{\partial P_{\theta'}(x)}{\partial \theta'_j} \Bigg|_{\theta'=\theta} \right] \\
+                                             & = \int_{-\infty}^{\infty} P_\theta(x) \left[ \frac{1}{P_\theta(x)^2} \frac{\partial P_{\theta'}(x)}{\partial \theta'_i} \frac{\partial P_{\theta'}(x)}{\partial \theta'_j} \Bigg|_{\theta'=\theta} \right] dx \quad (**)
+              \end{align*}
+
+              We know that the integral of the second derivative of the probability density is zero:
+              \[
+                  \int_{-\infty}^{\infty} \frac{\partial^2 P_{\theta'}(x)}{\partial \theta'_i \partial \theta'_j} \Bigg|_{\theta'=\theta} dx = \frac{\partial^2}{\partial \theta'_i \partial \theta'_j} \left( \int_{-\infty}^{\infty} P_{\theta'}(x) dx \right) \Bigg|_{\theta'=\theta} = 0
+              \]
+
+              Subtracting this zero-valued integral from $(**)$ yields:
+              \begin{align*}
+                  [\mathcal{I}(\theta)]_{ij} & = \int_{-\infty}^{\infty} P_\theta(x) \left[ \frac{1}{P_\theta(x)^2} \frac{\partial P_{\theta'}(x)}{\partial \theta'_i} \frac{\partial P_{\theta'}(x)}{\partial \theta'_j} - \frac{1}{P_\theta(x)} \frac{\partial^2 P_{\theta'}(x)}{\partial \theta'_i \partial \theta'_j} \Bigg|_{\theta'=\theta} \right] dx \\
+                                             & = \int_{-\infty}^{\infty} P_\theta(x) \left[ - \frac{\partial}{\partial \theta'_j} \left( \frac{1}{P_{\theta'}(x)} \frac{\partial P_{\theta'}(x)}{\partial \theta'_i} \right) \Bigg|_{\theta'=\theta} \right] dx                                                                                              \\
+                                             & = \int_{-\infty}^{\infty} P_\theta(x) \left[ - \frac{\partial^2 \log P_{\theta'}(x)}{\partial \theta'_i \partial \theta'_j} \Bigg|_{\theta'=\theta} \right] dx                                                                                                                                                \\
+                                             & = \mathbb{E}_{x \sim P_\theta(x)} \left[ - \nabla_{\theta'}^2 \log P_{\theta'}(x) \Big|_{\theta'=\theta} \right]_{ij}
+              \end{align*}
+              Thus, $\mathcal{I}(\theta) = - \mathbb{E}_{x \sim P_\theta(x)} \left[ \nabla_{\theta'}^2 \log P_{\theta'}(x) \Big|_{\theta'=\theta} \right]$.
+
+              \textbf{Step 3: Final Substitution.}
+              Substitute the results from Step 1 and Step 2 back into the Taylor expansion for $B$:
+              \begin{align*}
+                  B & \approx A + 0 + \frac{1}{2} d^T \mathbb{E}_{x \sim P_\theta(x)} \left[ \nabla_{\theta'}^2 \log P_{\theta'}(x) \Big|_{\theta'=\theta} \right] d \\
+                    & = A - \frac{1}{2} d^T \mathcal{I}(\theta) d
+              \end{align*}
+
+              Finally, substitute $B$ back into the KL divergence equation:
+              \[
+                  D_{\text{KL}}(P_\theta || P_{\theta+d}) \approx A - \left( A - \frac{1}{2} d^T \mathcal{I}(\theta) d \right) = \frac{1}{2} d^T \mathcal{I}(\theta) d
+              \]
+
+        \item[(b)]
+              We need to show that the direction of update of Newton's Method, and the direction of natural gradient, are exactly the same for GLMs.
+
+              Update rule for Newton's method:
+              \[
+                  \theta := \theta - H^{-1} \nabla_\theta \ell(\theta)
+              \]
+              where $H_{ij} = \frac{\partial^2 \ell(\theta)}{\partial \theta_i \partial \theta_j}$ is the Empirical Hessian.
+
+              Exponential family:
+              \[
+                  p(y; \eta) = b(y) \exp(\eta^T T(y) - a(\eta))
+              \]
+
+              For the sake of convenience, assume $\eta \in \mathbb{R}$ and $T(y) = y$. This makes the exponential family take the form:
+              \[
+                  p(y; \eta) = b(y) \exp(\eta y - a(\eta))
+              \]
+
+              Log likelihood on GLM models:
+              \begin{align*}
+                  \ell(\theta) & = \log \prod_{i=1}^m p(y^{(i)} | x^{(i)} ; \theta) = \sum_{i=1}^m \log p(y^{(i)} | x^{(i)} ; \theta) \\
+                               & = \sum_{i=1}^m \left[ \log b(y^{(i)}) + \theta^T x^{(i)} y^{(i)} - a(\theta^T x^{(i)}) \right]
+              \end{align*}
+
+              Taking the first derivative:
+              \begin{align*}
+                  \implies \nabla_\theta \ell(\theta) & = \sum_{i=1}^m \nabla_\theta \left[ \log b(y^{(i)}) + \theta^T x^{(i)} y^{(i)} - a(\theta^T x^{(i)}) \right] \\
+                                                      & = \sum_{i=1}^m x^{(i)} \left[ y^{(i)} - a'(\theta^T x^{(i)}) \right]
+              \end{align*}
+
+              Taking the second derivative:
+              \[
+                  \implies \nabla_\theta^2 \ell(\theta) = \sum_{i=1}^m -a''(\theta^T x^{(i)}) x^{(i)} (x^{(i)})^T
+              \]
+
+              $\implies \mathbb{E}_{y \sim p(y)}[H] = H$ since $H$ is constant wrt $y$.
+
+              Now consider the update direction of the Natural gradient: $\mathcal{I}^{-1}(\theta) \nabla_\theta \ell(\theta)$.
+
+              We have:
+              \[
+                  \mathcal{I}(\theta) = \mathbb{E}_{y \sim p(y)}[-H] = -H
+              \]
+
+              Compared to the Newton update, we see the update direction between the two methods matches for GLMs.
+    \end{itemize}
+
+\end{solution}

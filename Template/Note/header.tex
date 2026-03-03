@@ -45,3 +45,24 @@
     %after upper={\noindent\hfill $\square$},
     #1
 }
+
+% --- Define the Lemma Colors ---
+\definecolor{lemmagreen}{HTML}{2E7D32} % Deep, professional green
+\definecolor{lemmabg}{HTML}{E8F5E9}    % Very soft green background
+
+% --- The Lemma Environment ---
+\NewTColorBox[use counter=lemma]{lemma}{ O{} m m }{
+    enhanced,
+    sharp corners,
+    frame hidden,
+    boxrule=0pt,
+    colback=lemmabg,
+    borderline west={3pt}{0pt}{lemmagreen},
+    coltitle=lemmagreen,
+    fonttitle=\bfseries,
+    % Underlines "Lemma X" and adds a colon if a title is provided
+    title={\underline{Lemma \thetcbcounter}\ifstrempty{#2}{}{: #2}},
+    code={\ifstrempty{#3}{}{\tcbset{label={lem:#3}}}},
+    attach title to upper={\par\vspace{1ex}},
+    #1
+}
