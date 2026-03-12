@@ -1,0 +1,41 @@
+\begin{problem}{}{}{Real Mathematical Analysis, Pugh, Ex.65 p.130}
+Suppose that $A, B \subset \mathbb{R}^2$ are convex, closed, and have nonempty interiors.
+Prove that $A, B$ are the closure of their interiors.
+\end{problem}
+
+\begin{solution}
+
+    We need to show: $A = \overline{\operatorname{int} A}$
+
+    Let $x \in \overline{\operatorname{int} A}$. Since $\operatorname{int} A \subset A
+        \Rightarrow \overline{\operatorname{int} A} \subset \overline{A} \Rightarrow x \in \overline{A}$.
+    $A$ is closed $\Rightarrow A = \overline{A}$. It follows that $x \in A \Rightarrow \overline{\operatorname{int} A} \subset A$.
+
+    Now let $x \in A$. We need to show that $x \in \overline{\operatorname{int} A}$.
+
+    Since $\operatorname{int} A$ is not empty, choose $q \in \operatorname{int} A$. Consider the line segment joining $x$ and $q$:
+    \[ (l): tx + (1-t)q, \quad 0 \le t \le 1 \]
+
+    The claim is that any points on this line segment, possibly except $x$, is in the interior of $A$.
+    \[ \{tx + (1-t)q \mid 0 \le t < 1\} \subset \operatorname{int} A \]
+
+    Let $z_t = tx + (1-t)q$ for $0 \le t < 1$.
+
+    Intuitively, we can fit a ball around $z_t$ such that the ball is contained in $A$ as follows:
+
+    We'll prove that it is possible to construct such a ball around $z_t$ and that ball is contained in $A$.
+
+    Since $q \in \operatorname{int} A$, there is $r > 0$ such that $M_r q \subset \operatorname{int} A$,
+    where $M$ denotes the metric space $\mathbb{R}^2$. Since $A$ is convex, any convex combinations of $x$ and points in $M_r q$ are also in $A$. We have:
+    \[ tx + (1-t)M_r q = M_{(1-t)r} z_t \subset A \]
+
+    This implies that $z_t \in \operatorname{int} A$ for $0 \le t < 1$. We can easily construct a sequence $(z_n)$ that converges
+    to $x$ by simply defining $z_n$ as:
+    \[ z_n = \left(1-\frac{1}{n}\right)x + \frac{1}{n}q \]
+
+    Then, $\lim z_n = x$ and $(z_n)$ is a sequence contained in $\operatorname{int} A$. Thus, $x \in \overline{\operatorname{int} A} \Rightarrow A \subset \overline{\operatorname{int} A}$.
+
+    Therefore: $A = \overline{\operatorname{int} A}$
+
+
+\end{solution}

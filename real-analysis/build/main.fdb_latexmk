@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1772497209.49948 "/Users/mabook/Documents/Math/real-analysis/main.tex" "build/main.pdf" "main" 1772497210.46565 0
+["pdflatex"] 1773350922.41149 "/Users/mabook/Documents/Math/real-analysis/main.tex" "build/main.pdf" "main" 1773350923.19999 0
   "../Template/Note/header.tex" 1772423406.72436 2260 4668dab70b7a081386ebc265dcaa8d7a ""
   "../Template/math.tex" 1772331936.1648 392 77f6112c6e7371705b37ef9aa5a04c80 ""
-  "/Users/mabook/Documents/Math/real-analysis/main.tex" 1772497209.37429 820 23048eacd106b547fd5479aad6df112f ""
+  "/Users/mabook/Documents/Math/real-analysis/main.tex" 1773262392.18145 820 4ad1a88954513f746e154dc3a65486e6 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -40,6 +40,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb" 1248133631 35660 fb24af7afbadb71801619f1415838111 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
@@ -178,11 +179,12 @@
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Figures/cover.png" 1772314566.7587 9850 86055288bf8755befc746b912233b71c ""
   "appendix.tex" 1772314816.35354 39 7b8b500eebfce43b9e1ce1885cf4c3f6 ""
-  "build/main.aux" 1772497210.39585 344 e31c5bd1494310ffe9602aaf1e28f897 "pdflatex"
-  "main.tex" 1772497209.37429 820 23048eacd106b547fd5479aad6df112f ""
+  "build/main.aux" 1773350923.13279 384 e945df39fc292f00fd7eedcf769b406a "pdflatex"
+  "main.tex" 1773262392.18145 820 4ad1a88954513f746e154dc3a65486e6 ""
   "problems/p1.tex" 1772379021.79299 834 90be9e625a45fa64ec4e155bb6539ed8 ""
   "problems/p2.tex" 1772379054.26908 1988 0e8f1001dae02366a2f38ffec914846c ""
   "problems/p3.tex" 1772381341.36477 838 37a6b089bf6c53cfb4dd474e4b547cb8 ""
+  "problems/p4.tex" 1773350922.39902 2132 1f333cf1e58de6c01890499683eb1521 ""
   (generated)
   "build/main.aux"
   "build/main.log"
