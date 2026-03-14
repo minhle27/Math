@@ -1,0 +1,37 @@
+\begin{problem}{}{}{Real Mathematical Analysis, Pugh, Ex.85 p.133}
+Suppose that \(M\) is compact and that \(\mathcal{U}\) is an open covering of \(M\) which is
+``redundant'' in the sense that each \(p \in M\) is contained in at least two members
+of \(\mathcal{U}\). Show that \(\mathcal{U}\) reduces to a finite subcovering with the same property.
+\end{problem}
+
+\begin{solution}
+Since $M$ is compact and $\mathcal{U}$ is an open covering of $M$, $\mathcal{U}$ reduces to some $V$, 
+where $V$ is a finite subcovering.
+Suppose there are points in $M$ that belong to exactly one member of $V$. Let's call this set of points $A$.
+
+The idea is to add extra patches from $\mathcal{U}$ that are not in $V$ to cover the points in $A$. 
+For each $p \in A$, it is possible to add a set $U \in \mathcal{U}$ with $U \notin V$, such that $p \in U$, 
+since $\mathcal{U}$ is redundant. Adding such a set for each $p \in A$ would ensure each point of $M$ is covered by at least two sets.
+
+If $A$ is finite, then we only need to add a finite number of extra patches to $V$, 
+and $V$ would become a redundant finite subcovering of $M$.
+
+However, it is possible that $A$ is infinite, meaning we might need to add infinitely many extra sets to $V$, 
+which makes $V$ no longer a finite subcovering. Let's show that even if $A$ is infinite, we only need to add 
+a finite number of extra patches to $V$.
+
+We claim that $A$ is compact. Consider a sequence $(p_n)$ in $A$. Since $M$ is compact, 
+$(p_n)$ has a convergent subsequence $(p_{n_k})$, such that $(p_{n_k}) \to p$, where $p \in M$. Suppose $p \notin A$. 
+This means $p$ belongs to at least two members from $V$. Let $V_1, V_2$ be two sets that contain $p$. 
+We have that $V_1 \cap V_2$ is open since a finite intersection of open sets is open. 
+There exists $r > 0$ such that the neighborhood $M_{r}p  \subset V_1 \cap V_2$. Since $(p_{n_k}) \to p$, 
+there must be terms of $(p_{n_k})$ that lie in $M_{r}p$, which in turn lie in $V_1 \cap V_2$. 
+This contradicts the fact that $(p_{n_k})$ is in $A$ (because points in $A$ belong to exactly one set). 
+
+Therefore, $p \in A$ and $A$ is compact. Now, since $A$ is compact, 
+the collection of extra patches we selected to cover $A$ is an open cover of $A$, 
+and it must reduce to a finite subcovering for $A$. 
+
+By this construction, our original finite cover $V$ plus this finite subcovering for $A$ ensures 
+that $\mathcal{U}$ reduces to a redundant finite subcovering.
+\end{solution}
