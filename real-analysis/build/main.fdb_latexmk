@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1773507988.83421 "/Users/mabook/Documents/Math/real-analysis/main.tex" "build/main.pdf" "main" 1773507989.74316 0
+["pdflatex"] 1773668511.94001 "/Users/mabook/Documents/Math/real-analysis/main.tex" "build/main.pdf" "main" 1773668512.87621 0
   "../Template/Note/header.tex" 1772423406.72436 2260 4668dab70b7a081386ebc265dcaa8d7a ""
   "../Template/math.tex" 1772331936.1648 392 77f6112c6e7371705b37ef9aa5a04c80 ""
-  "/Users/mabook/Documents/Math/real-analysis/main.tex" 1773440613.04158 820 94e962ce66b10a22afb312bebc18ffa7 ""
+  "/Users/mabook/Documents/Math/real-analysis/main.tex" 1773668473.5093 820 d69934ef43f3861fd40759f25d6660ef ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -180,13 +180,14 @@
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Figures/cover.png" 1772314566.7587 9850 86055288bf8755befc746b912233b71c ""
   "appendix.tex" 1772314816.35354 39 7b8b500eebfce43b9e1ce1885cf4c3f6 ""
-  "build/main.aux" 1773507989.66526 424 d65b9bd1800aab79fdf34ec517335669 "pdflatex"
-  "main.tex" 1773440613.04158 820 94e962ce66b10a22afb312bebc18ffa7 ""
+  "build/main.aux" 1773668512.79984 464 2fa7f09b40793e02a6bc9b86253b9a50 "pdflatex"
+  "main.tex" 1773668473.5093 820 d69934ef43f3861fd40759f25d6660ef ""
   "problems/p1.tex" 1772379021.79299 834 90be9e625a45fa64ec4e155bb6539ed8 ""
   "problems/p2.tex" 1772379054.26908 1988 0e8f1001dae02366a2f38ffec914846c ""
   "problems/p3.tex" 1772381341.36477 838 37a6b089bf6c53cfb4dd474e4b547cb8 ""
   "problems/p4.tex" 1773440769.39069 2153 6a8870f8038a40dbbfe8f5034db96c38 ""
   "problems/p5.tex" 1773507988.6946 2468 d8836bfcf52c4a0dbe23e6886a33d163 ""
+  "problems/p6.tex" 1773668511.79141 710 cf3d90d91dd3bfef69674ec4c0ea2c26 ""
   (generated)
   "build/main.aux"
   "build/main.log"

@@ -8,11 +8,13 @@ $g(\vec{x}) \le h(\vec{x}) \le f(\vec{x})$ for all $\vec{x} \in \mathbb{R}^n$.
 \end{problem}
 
 \begin{solution}
-    Since $f$ is convex and $g$ is concave, we have $\text{int epi}(f)$ and $\text{hypo}(g)$ are two nonempty disjoint convex sets:
+    Since $f$ is convex and $g$ is concave, we have $\text{int epi}(f)$ and $\text{hypo}(g)$ 
+    are two nonempty disjoint convex sets:
     \[ \text{int epi}(f) = \{(\vec{x}, t) \mid \vec{x} \in \mathbb{R}^n, t > f(\vec{x})\} \]
     \[ \text{hypo}(g) = \{(\vec{x}, t) \mid \vec{x} \in \mathbb{R}^n, t \le g(\vec{x})\} \]
 
-    By the separating hyperplane theorem, there exists a hyperplane that separates $\text{int epi}(f)$ and $\text{hypo}(g)$. This means there exist $\vec{a}, b, c$ such that:
+    By the separating hyperplane theorem, there exists a hyperplane that separates $\text{int epi}(f)$ and $\text{hypo}(g)$. 
+    This means there exist $\vec{a}, b, c$ such that:
     \[ \vec{a}^T\vec{x} + bt \ge c, \quad \forall (\vec{x}, t) \in \text{int epi}(f) \]
     \[ \vec{a}^T\vec{x} + bt \le c, \quad \forall (\vec{x}, t) \in \text{hypo}(g) \]
 
@@ -24,7 +26,8 @@ $g(\vec{x}) \le h(\vec{x}) \le f(\vec{x})$ for all $\vec{x} \in \mathbb{R}^n$.
               \[ \vec{a}^T\vec{x} \le c, \quad \forall (\vec{x}, t) \in \text{hypo}(g) \]
               This implies $\vec{a}^T\vec{x} = c, \forall \vec{x} \in \mathbb{R}^n$, which is false since $\vec{a} \neq \vec{0}$.
 
-        \item If $b < 0$, we have $(\vec{x}, \infty) \in \text{int epi}(f)$, which implies $\vec{a}^T\vec{x} + bt \ge c$ but the left hand side tends to $-\infty$.
+        \item If $b < 0$, we have $(\vec{x}, \infty) \in \text{int epi}(f)$, 
+        which implies $\vec{a}^T\vec{x} + bt \ge c$ but the left hand side tends to $-\infty$.
     \end{itemize}
 
     Thus, $b > 0$. Consider $h: \mathbb{R}^n \to \mathbb{R}, h(\vec{x}) = \frac{c}{b} - \frac{1}{b}\vec{a}^T\vec{x}$.
@@ -38,4 +41,5 @@ $g(\vec{x}) \le h(\vec{x}) \le f(\vec{x})$ for all $\vec{x} \in \mathbb{R}^n$.
     By the $\varepsilon$-principle, $f(\vec{x}) \ge h(\vec{x})$.
 
     Therefore, $h(\vec{x})$ as defined is the desired affine function.
+    \hfill $\square$ 
 \end{solution}

@@ -1,0 +1,147 @@
+\begin{problem}{}{}{UCB EECS127 FA23 - Disc 8}
+In this question we will see how combinatorial optimization problems can sometimes be solved
+via related convex optimization problems. Consider the problem of deciding which subset of items
+to sell from among a collection of $n$ items. Selling the item $i$ results in revenue $s_i > 0$
+and a transaction cost $c_i > 0$. There is also a fixed overall cost, which we normalize to $1$,
+which is incurred irrespective of whether any items are sold. We are interested in maximizing the \emph{margin},
+i.e. the ratio of the total revenue to the total cost (sum of the total transaction cost and the fixed overall cost).
+Note that this is a combinatorial optimization problem, because the set of choices is a discrete set
+(here it is the set of all subsets of $\{1, \dots, n\}$). In this question we will see that it is possible to
+pose this combinatorial optimization problem as a convex optimization problem.
+
+\begin{enumerate}
+    \item[(a)] Show that the original combinatorial optimization problem can be formulated as
+          \[
+              \max_{\vec{x} \in \{0,1\}^n} f(\vec{x})
+          \]
+          where $f(\vec{x}) := \frac{\vec{s}^\top \vec{x}}{1 + \vec{c}^\top \vec{x}}$, Here $\vec{s} \in \mathbb{R}^n$ is the column
+          vector of revenues and $\vec{c} \in \mathbb{R}^n$ is the column vector of transaction costs associated
+          to the individual items.
+
+    \item[(b)] Show that the combinatorial optimization problem admits a convex optimization problem formulation
+          in the sense that the convex optimization problem
+          \begin{align*}
+              \min_t \quad             & t                                                   \\
+              \text{subject to:} \quad & t \ge \vec{\mathbf{1}}^\top (\vec{s} - t\vec{c})_+, \\
+                                       & t \ge 0,
+          \end{align*}
+          has the same value as that of the original combinatorial optimization problem. Here $\vec{z}_+$,
+          for a vector $\vec{z} \in \mathbb{R}^n$, denotes the vector with components $\max(0, z_i)$, $i = 1, \dots, n$.
+          Also $\vec{\mathbf{1}}$ denotes the all-ones column vector of length $n$.
+
+          \textit{Note:} You should also justify why the problem formulated in this part of the question is
+          a convex optimization problem.
+
+          \textit{Hint:} For given $t \ge 0$, express the condition ``$f(\vec{x}) \le t$ for every
+          $\vec{x} \in \{0,1\}^n$''
+          in simple terms. Note that this is related to the idea of introducing slack variables,
+          as in Sec. 8.3.4.4 of the
+          textbook of Calafiore and El Ghaoui.
+
+    \item[(c)] Show that the inequality constraint $t \ge \vec{\mathbf{1}}^\top (\vec{s} - t\vec{c})_+$ is active at the
+          optimum in the convex optimization problem, namely, it will have to be satisfied with equality.
+
+    \item[(d)] How can you recover an optimal solution $\vec{x}^*$ for the original combinatorial optimization problem
+          from an optimal value $t^*$ for the above convex optimization problem?
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{itemize}
+
+        \item[(a)] Maximizing the margin:
+              \begin{equation}
+                  \max_{S \in \mathcal{P}(\{1,\dots,n\})}
+                  \frac{\text{total revenue of selling items in subset } S}%
+                  {1 + \text{total transaction cost of selling items in subset } S} 
+              \end{equation}
+
+              Represents the subset $S$ as a binary mask in $\mathbb{R}^n$, we rewrite (1):
+              \begin{align*}
+                  \max_{\vec{x} \in \{0,1\}^n} f(\vec{x}), \quad
+                  f(\vec{x}) & = \frac{\vec{s}^\top \vec{x}}{1 + \vec{c}^\top \vec{x}}
+              \end{align*}
+
+              Here $\vec{s} \in \mathbb{R}^n$ is the column vector of revenues
+              and $\vec{c} \in \mathbb{R}^n$ is the column vector of transaction costs.
+
+        \item[(b)] The problem $\max_{\vec{x} \in \{0,1\}^n} f(\vec{x})$ is equivalent
+              to the problem:
+              \begin{align*}
+                  \min_t \quad             & t                                                         \\
+                  \text{subject to } \quad & t \ge f(\vec{x}) \text{ for every } \vec{x} \in \{0,1\}^n
+              \end{align*}
+
+              Rewrite $t \ge f(\vec{x})$ for every $\vec{x} \in \{0,1\}^n$:
+              \begin{align*}
+                  t \ge \frac{\vec{s}^\top \vec{x}}{1 + \vec{c}^\top \vec{x}},
+                  \; \forall \vec{x} \in \{0,1\}^n
+                   & \Leftrightarrow t + \vec{x}^\top(t\vec{c}) \ge \vec{s}^\top \vec{x},
+                  \; \forall \vec{x} \in \{0,1\}^n                                                       \\
+                   & \Leftrightarrow t \ge \vec{x}^\top(\vec{s} - t\vec{c}),
+                  \; \forall \vec{x} \in \{0,1\}^n                                                       \\
+                   & \Leftrightarrow t \ge \max_{\vec{x} \in \{0,1\}^n} \vec{x}^\top(\vec{s} - t\vec{c}) \\
+                   & \Leftrightarrow t \ge \mathbf{1}^\top(\vec{s} - t\vec{c})_+
+              \end{align*}
+
+              Therefore,
+              \begin{equation*}
+                  \max_{\vec{x} \in \{0,1\}^n} f(\vec{x}) =
+                  \begin{aligned}[t]
+                       & \min t                                                   \\
+                       & \text{s.t: } t \ge \mathbf{1}^\top(\vec{s} - t\vec{c})_+
+                  \end{aligned}
+              \end{equation*}
+
+              The reformulated problem is a convex optimization problem since:
+              \begin{itemize}
+                  \item The objective function $f_0(t) = t$ is convex in $t$
+                  \item The constraint $f_1(t) = -t + \max_{\vec{x} \in \{0,1\}^n}
+                            \vec{x}^\top(\vec{s} - t\vec{c}) \le 0$ has $f_1$ be convex in $t$ since:
+              \end{itemize}
+              \begin{align*}
+                  f_1(t) & = -t + \max_{\vec{x} \in \{0,1\}^n} \vec{x}^\top(\vec{s} - t\vec{c}) \\
+                         & = -t + \sum_{i=1}^n \max(0, s_i - tc_i)
+              \end{align*}
+
+              Apply Nonnegative weighted sum and pointwise maximization rule
+              $\Rightarrow f_1$ convex.
+
+        \item[(c)] Let $t^*$ be the solution to the optimization problem.
+              Suppose the inequality constraint is not active at the optimum.
+
+              We have:
+              \begin{align*}
+                                    & t^* > \mathbf{1}^\top(\vec{s} - t^*\vec{c})_+ \\
+                  \Rightarrow \quad & t^* > \max_{\vec{x} \in \{0,1\}^n}
+                  \vec{x}^\top(\vec{s} - t^*\vec{c})                                \\
+                  \Rightarrow \quad & t^* > \vec{x}^\top(\vec{s} - t^*\vec{c}),
+                  \quad \forall \vec{x} \in \{0,1\}^n                               \\
+                  \Rightarrow \quad & t^* > f(\vec{x}),
+                  \quad \forall \vec{x} \in \{0,1\}^n                               \\
+                  \Rightarrow \quad & t^* > \max_{\vec{x} \in \{0,1\}^n} f(\vec{x})
+              \end{align*}
+
+              Which contradicts the fact that $t^* = \max_{\vec{x} \in \{0,1\}^n} f(\vec{x})$.
+
+        \item[(d)] Constraint is active at optimum:
+              \begin{align*}
+                  \Rightarrow \quad & t^* = \max_{\vec{x} \in \{0,1\}^n}
+                  \vec{x}^\top(\vec{s} - t^*\vec{c})                                             \\
+                  \Rightarrow \quad & \exists \vec{x}^* \in \{0,1\}^n :
+                  t^* = \vec{x}^{*\top}(\vec{s} - t^*\vec{c})                                    \\
+                  \Rightarrow \quad & \vec{x}^* = \operatorname*{argmax}_{\vec{x} \in \{0,1\}^n}
+                  f(\vec{x})
+              \end{align*}
+
+              Since $\vec{x}^* = \operatorname*{argmax}_{\vec{x} \in \{0,1\}^n}
+                  \vec{x}^\top(\vec{s} - t^*\vec{c})$, construct $\vec{x}$ such that:
+              \begin{equation*}
+                  x_i = \begin{cases}
+                      1 & \text{if } s_i > t^*c_i   \\
+                      0 & \text{if } s_i \le t^*c_i
+                  \end{cases}
+              \end{equation*}
+
+    \end{itemize}
+\end{solution}
