@@ -1,0 +1,41 @@
+\begin{problem}{}{}{UCB EECS127 FA23 - Disc 8}
+\textbf{Sandwich Function}
+
+Let $f : \mathbb{R}^n \to \mathbb{R}$ be a convex function, and $g : \mathbb{R}^n \to \mathbb{R}$ be a concave function.
+Suppose $g(\vec{x}) \le f(\vec{x})$ for all $\vec{x} \in \mathbb{R}^n$.
+Prove that there exists an affine function $h : \mathbb{R}^n \to \mathbb{R}$ such that
+$g(\vec{x}) \le h(\vec{x}) \le f(\vec{x})$ for all $\vec{x} \in \mathbb{R}^n$.
+\end{problem}
+
+\begin{solution}
+    Since $f$ is convex and $g$ is concave, we have $\text{int epi}(f)$ and $\text{hypo}(g)$ are two nonempty disjoint convex sets:
+    \[ \text{int epi}(f) = \{(\vec{x}, t) \mid \vec{x} \in \mathbb{R}^n, t > f(\vec{x})\} \]
+    \[ \text{hypo}(g) = \{(\vec{x}, t) \mid \vec{x} \in \mathbb{R}^n, t \le g(\vec{x})\} \]
+
+    By the separating hyperplane theorem, there exists a hyperplane that separates $\text{int epi}(f)$ and $\text{hypo}(g)$. This means there exist $\vec{a}, b, c$ such that:
+    \[ \vec{a}^T\vec{x} + bt \ge c, \quad \forall (\vec{x}, t) \in \text{int epi}(f) \]
+    \[ \vec{a}^T\vec{x} + bt \le c, \quad \forall (\vec{x}, t) \in \text{hypo}(g) \]
+
+    The separating hyperplane is $(H): \vec{a}^T\vec{x} + bt = c$.
+
+    \begin{itemize}
+        \item Suppose $b = 0$. We have:
+              \[ \vec{a}^T\vec{x} \ge c, \quad \forall (\vec{x}, t) \in \text{int epi}(f) \]
+              \[ \vec{a}^T\vec{x} \le c, \quad \forall (\vec{x}, t) \in \text{hypo}(g) \]
+              This implies $\vec{a}^T\vec{x} = c, \forall \vec{x} \in \mathbb{R}^n$, which is false since $\vec{a} \neq \vec{0}$.
+
+        \item If $b < 0$, we have $(\vec{x}, \infty) \in \text{int epi}(f)$, which implies $\vec{a}^T\vec{x} + bt \ge c$ but the left hand side tends to $-\infty$.
+    \end{itemize}
+
+    Thus, $b > 0$. Consider $h: \mathbb{R}^n \to \mathbb{R}, h(\vec{x}) = \frac{c}{b} - \frac{1}{b}\vec{a}^T\vec{x}$.
+
+    Let $\vec{x} \in \mathbb{R}^n$ be arbitrary. Consider $(\vec{x}, g(\vec{x})) \in \text{hypo}(g)$. We have:
+    \[ \vec{a}^T\vec{x} + bg(\vec{x}) \le c \implies g(\vec{x}) \le \frac{c}{b} - \frac{1}{b}\vec{a}^T\vec{x} = h(\vec{x}) \]
+
+    Consider $(\vec{x}, t) \in \text{int epi}(f)$:
+    \[ \vec{a}^T\vec{x} + bt \ge c \implies t \ge h(\vec{x}), \forall t > f(\vec{x}) \]
+
+    By the $\varepsilon$-principle, $f(\vec{x}) \ge h(\vec{x})$.
+
+    Therefore, $h(\vec{x})$ as defined is the desired affine function.
+\end{solution}

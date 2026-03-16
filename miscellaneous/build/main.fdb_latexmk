@@ -1,9 +1,11 @@
 # Fdb version 4
-["pdflatex"] 1772556615.92692 "/Users/mabook/Documents/Math/miscellaneous/main.tex" "build/main.pdf" "main" 1772556616.95676 0
+["pdflatex"] 1773630177.9227 "/Users/mabook/Documents/Math/miscellaneous/main.tex" "build/main.pdf" "main" 1773630178.88881 0
   "../Template/Note/header.tex" 1772423406.72436 2260 4668dab70b7a081386ebc265dcaa8d7a ""
   "../Template/math.tex" 1772331936.1648 392 77f6112c6e7371705b37ef9aa5a04c80 ""
-  "/Users/mabook/Documents/Math/miscellaneous/main.tex" 1772423117.93598 566 13cd3519f28338002d1347986c3bfdea ""
+  "/Users/mabook/Documents/Math/miscellaneous/main.tex" 1773520673.47878 566 2f53b530d2a407c8bd2dc7e870f39757 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -47,6 +49,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb" 1248133631 35660 fb24af7afbadb71801619f1415838111 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1215737283 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty" 1734129479 7984 7dbb9280f03c0a315425f1b4f35d43ee ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty" 1572645307 1057 525c2192b5febbd8c1f662c9468335bb ""
@@ -180,9 +183,10 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1763592299 3345739 4e7de2fdf7c7de5ab401c536298ce592 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Figures/cover.png" 1772396424.84711 532164 e91e1e0ab419216171fe85209863c6a3 ""
-  "build/main.aux" 1772556616.88566 117 d14b79c89130d305c88ed490b70b9f36 "pdflatex"
-  "main.tex" 1772423117.93598 566 13cd3519f28338002d1347986c3bfdea ""
+  "build/main.aux" 1773630178.81027 157 20bbd7bd7f4126289d8905688570097b "pdflatex"
+  "main.tex" 1773520673.47878 566 2f53b530d2a407c8bd2dc7e870f39757 ""
   "problems/p1.tex" 1772556615.78325 13165 2e3c155e142a5e91a4d4442a6ca1f247 ""
+  "problems/p2.tex" 1773630177.79393 2406 93d35deeee405e9e634739fdc9fd8cce ""
   (generated)
   "build/main.aux"
   "build/main.log"
