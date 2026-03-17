@@ -3,6 +3,12 @@
 \usepackage{amsmath,amssymb}
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{skins}
+\usepackage[
+    colorlinks=true, % Removes the ugly boxes around links
+    linkcolor=blue,  % Colors internal links (like \ref) blue
+    urlcolor=teal,   % Colors web links teal
+    citecolor=green  % Colors bibliography citations green
+]{hyperref}
 
 \definecolor{claimblue}{HTML}{315E81}
 \definecolor{claimbg}{HTML}{F0F5F9}
@@ -63,6 +69,69 @@
     % Underlines "Lemma X" and adds a colon if a title is provided
     title={\underline{Lemma \thetcbcounter}\ifstrempty{#2}{}{: #2}},
     code={\ifstrempty{#3}{}{\tcbset{label={lem:#3}}}},
+    attach title to upper={\par\vspace{1ex}},
+    #1
+}
+
+% --- Define the Pink Intuition Colors ---
+\definecolor{intpink}{HTML}{D81B60} % Deep magenta-pink for the border and title
+\definecolor{intbg}{HTML}{FCE4EC}   % Soft blush pink for the background
+
+% --- The Intuition Environment ---
+% Notice this one only takes 2 arguments: [Options] and {Title}
+% Intuition boxes usually don't need cross-referencing labels or sources.
+\NewTColorBox{intuition}{ O{} m }{
+    enhanced,
+    sharp corners,
+    frame hidden,
+    boxrule=0pt,
+    colback=intbg,
+    borderline west={3pt}{0pt}{intpink},
+    coltitle=intpink,
+    fonttitle=\bfseries,
+    % Formats as "Intuition" or "Intuition: Your Title"
+    title={Intuition\ifstrempty{#2}{}{: #2}}, 
+    attach title to upper={\par\vspace{1ex}},
+    #1
+}
+
+% --- Define the General Box Colors ---
+\definecolor{boxgray}{HTML}{424242}
+\definecolor{boxbg}{HTML}{F5F5F5}
+
+% --- FIXED General-Purpose Box Environment ---
+\NewTColorBox{notebox}{ O{} m }{
+    enhanced,
+    sharp corners,
+    frame hidden,
+    boxrule=0pt,
+    colback=boxbg,
+    borderline west={3pt}{0pt}{boxgray},
+    coltitle=boxgray,
+    fonttitle=\bfseries,
+    code={%
+        \ifstrempty{#2}%
+        {\tcbset{notitle}}%
+        {\tcbset{title={#2}, attach title to upper={\par\vspace{1ex}}}}%
+    },
+    #1
+}
+
+% --- Define the Orange Remark Colors ---
+\definecolor{remarkorange}{HTML}{E65100}
+\definecolor{remarkbg}{HTML}{FFF3E0}
+
+% --- FIXED Remark Environment ---
+\NewTColorBox{remark}{ O{} m }{
+    enhanced,
+    sharp corners,
+    frame hidden,
+    boxrule=0pt,
+    colback=remarkbg,
+    borderline west={3pt}{0pt}{remarkorange},
+    coltitle=remarkorange,
+    fonttitle=\bfseries,
+    title={Remark\ifstrempty{#2}{}{: #2}},
     attach title to upper={\par\vspace{1ex}},
     #1
 }

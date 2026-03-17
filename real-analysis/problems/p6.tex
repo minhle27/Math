@@ -1,5 +1,5 @@
 \begin{problem}{}{}{Real Mathematical Analysis, Pugh, Ex.78 p.131}
-$(p_1,\dots,p_n)$ is an \textbf{$\epsilon$-chain} in a metric space $M$ if for each $i$ we have $p_i \in M$ and $d(p_i,p_{i+1}) < \epsilon$. 
+$(p_1,\dots,p_n)$ is an \textbf{$\epsilon$-chain} in a metric space $M$ if for each $i$ we have $p_i \in M$ and $d(p_i,p_{i+1}) < \epsilon$.
 The metric space is \textbf{chain-connected} if for each $\epsilon > 0$ and each pair of points $p,q \in M$ there is an $\epsilon$-chain from $p$ to $q$.
 \begin{enumerate}
     \item[(a)] Show that every connected metric space is chain-connected.
@@ -8,3 +8,102 @@ The metric space is \textbf{chain-connected} if for each $\epsilon > 0$ and each
     \item[(d)] If $M$ is complete and chain-connected, is it connected?
 \end{enumerate}
 \end{problem}
+
+\begin{solution}
+    \begin{itemize}
+        \item[(a)]
+              Let $M$ be a connected metric space. Suppose for contradiction that
+              $M$ is not chain-connected. There is an $\epsilon > 0$ and a pair
+              of points $p, q \in M$ such that there is no $\epsilon$-chain from $p$ to $q$.
+
+              Define $A = \{x \in M \mid \text{there exists an } \epsilon\text{-chain from }
+                  p \text{ to } x\}$.
+
+              We have $p \in A$ and $q \in A^c$ so $A$ and $A^c$ are disjoint and nonempty.
+
+              Clearly, $A$ is open since for any $x \in A$ we have $M_r x \subset A$
+              for any $r < \epsilon$. This is because having an $\epsilon$-chain from
+              $p$ to $x$ implies having an $\epsilon$-chain from $p$ to $y \in M_r x$,
+              $r < \epsilon$.
+
+              Similarly, $A^c$ is open since for any $x \in A^c$ we have $M_r x \subset A^c$
+              for any $r < \epsilon$. This is because if $M_r x$ is not contained in $A^c$
+              then there is $y \in A \cap M_r x$. This implies there is an $\epsilon$-chain
+              from $p$ to $x$ via $y \implies x \in A$,
+              a contradiction.
+
+              Thus, $M = A \sqcup A^c$ is a separation of $M$, meaning $M$ is disconnected.
+              This contradicts the fact that $M$ is connected.
+        \item[(b)]
+              Suppose for contradiction that $M$ is disconnected. There is a
+              separation of $M$ into proper, disjoint clopen subsets:
+              $$M = A \sqcup A^c$$
+
+              Let $p \in A$ and $q \in A^c$. Since $M$ is chain-connected, there exists
+              an $\epsilon$-chain between $p$ and $q$ for any $\epsilon > 0$. We construct a
+              sequence $(x_n)$ as follows: $x_n$ is a point in $A$ where $M_{1/n} x_n$
+              intersects both $A$ and $A^c$ nonempty. We are able to choose such
+              an $x_n$ since if for each point $x \in A$ we have $M_{1/n} x \subset A$ then
+              it is impossible to construct a $\frac{1}{n}$-chain from $p$ to $q$.
+
+              Since $M$ is compact and $A$ is closed, there is a subsequence
+              $(x_{n_k}) \to c$, $c \in A$. Since $A$ is also open, choose $\epsilon > 0$
+              such that $M_\epsilon c \subset A$. Because $(x_{n_k}) \to c$, there exists
+              an $N \in \mathbb{N}$ such that for all $n_k \ge N$ we have $x_{n_k} \in M_\epsilon c$.
+
+              Thus, it is definitely possible to find an $n_k \ge N$ such that
+              $M_{1/n_k} x_{n_k} \subset M_\epsilon c \subset A$. However, this contradicts
+              the fact that $M_{1/n_k} x_{n_k} \cap A^c$ is nonempty.
+
+              Therefore, $M$ must be connected.
+              \begin{intuition}{}
+                  An $\epsilon$-chain must jump across the separation,
+                  and compactness forces those ``jump points'', which we defined by \(x_n\), to accumulate,
+                  leading to a contradiction.
+              \end{intuition}
+
+              \begin{notebox}{Alternative approach}
+                  Since $A$ and $A^c$ are compact, disjoint, nonempty subsets of $M$,
+                  from \hyperref[prob:p3]{Problem 3}, we can define the distance between $A$ and $A^c$ to
+                  be $\delta = d(a_0, b_0) = \inf \{d(a,b) \mid a \in A, b \in A^c\}, a_0 \in A, b_0 \in A^c$.
+
+                  As $\delta > 0$, we choose $\epsilon$ such that $0 < \epsilon < \delta$. Now, it is impossible
+                  to construct an $\epsilon$-chain from $p \in A$ to $q \in A^c$ because that would require
+                  jumping from $p_i \in A$ to $p_{i+1} \in A^c$. However, we have $d(p_i, p_{i+1}) \ge \delta > \epsilon$.
+              \end{notebox}
+        \item[(c)]
+              $\mathbb{R} \setminus \mathbb{Z}$ is a space that is shattered into infinitely many open intervals.
+
+              Let $p, q \in \mathbb{R} \setminus \mathbb{Z}$. If $p, q$ are in the same open interval, there
+              exists an $\epsilon$-chain between $p$ and $q$ since an open interval is connected, which
+              implies chain-connected by part (a). If $p$ and $q$ are in different open intervals,
+              it is still possible to construct an $\epsilon$-chain from $p$ to $q$. For simplicity, suppose
+              that $p$ and $q$ are in two ``consecutive'' open intervals. Let $c$ be the missing
+              integer. Choose $p_i$ to the left of $c$ such that $d(p_i, c) < \frac{\epsilon}{2}$ and choose $p_{i+1}$
+              to the right of $c$ such that $d(p_{i+1}, c) < \frac{\epsilon}{2}$. It follows that $d(p_i, p_{i+1}) < \epsilon$.
+
+              There is an $\epsilon$-chain from $p$ to $p_i$, $p_i$ to $p_{i+1}$, and $p_{i+1}$ to $q$.
+
+              Therefore, $\mathbb{R} \setminus \mathbb{Z}$ is chain-connected.
+              \begin{remark}{}
+                  Because the space is not compact, the distance between those disconnected components can be $0$, which
+                  makes it possible to jump across that thin gap. Compactness would make that gap be greater
+                  than $0$.
+              \end{remark}
+        \item[(d)]
+              Let $M = A \sqcup B$, where $A = \{(x, 0) \mid x \ge 1\}$ and $B = \{(x, 1/x) \mid x \ge 1\}$.
+
+              It is easy to verify that $M$ is disconnected with $M = A \sqcup B$ being the separation.
+
+              Since any Cauchy sequence is bounded, it is easy to verify that $M$ is complete.
+
+              If $p$ and $q$ are in the same set $\Rightarrow \exists$ an $\epsilon$-chain from $p$ to $q$. 
+              
+              If $p$ and $q$ are in different sets, we can walk as far to the right until the gap between
+              $A$ and $B$ is small enough and make a jump there $\Rightarrow \exists$ an $\epsilon$-chain from $p$ to $q$.
+
+              $\Rightarrow M$ is complete, chain-connected but disconnected.
+
+    \end{itemize}
+
+\end{solution}
