@@ -1,0 +1,67 @@
+\begin{problem}{}{}{Real Mathematical Analysis, Pugh, Ex.9 p.198}
+Assume that $f : \mathbb{R} \to \mathbb{R}$ is differentiable.
+\begin{enumerate}
+    \item[(a)] If there is an $L < 1$ such that for each $x \in \mathbb{R}$ we have $f'(x) < L$, prove that there exists a unique point $x$ such that $f(x) = x$. [$x$ is a fixed point for $f$.]
+    \item[(b)] Show by example that (a) fails if $L = 1$.
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{itemize}
+        \item[(a)]
+              We have $f'(x) < L$, $\forall x \in \mathbb{R}$.
+              This implies that $\frac{f(a) - f(b)}{a - b} < L$, $\forall a,b \in \mathbb{R}, a < b$.
+              Otherwise, $\exists a, b \in \mathbb{R}, a < b : \frac{f(a) - f(b)}{a - b} \ge L$.
+              By MVT, $\exists \theta \in (a, b) : f'(\theta) = \frac{f(a) - f(b)}{a - b} \ge L$,
+              which is a contradiction.
+
+              Define $g(x) = f(x) - x$. We have:
+              \begin{align*}
+                           & \frac{f(a) - f(b)}{a - b} < L                                         \\
+                  \implies & f(a) - f(b) > L(a - b)                                                \\
+                  \implies & g(a) - g(b) > (L - 1)(a - b), \quad \forall a,b \in \mathbb{R}, a < b
+              \end{align*}
+
+              Plug in $b = 0 \implies g(a) > g(0) + (L - 1)a$, $\forall a < 0$. \\
+              Since $L < 1$ and $a < 0$, we have $(L - 1)a > 0$ and this can be made
+              arbitrarily large by letting $a \to -\infty$.
+              This implies that $\exists a_1 < 0$ such that $g(a_1) > 0$.
+
+              Plug in $a = 0 \implies g(b) < (L - 1)b + g(0)$, $\forall b > 0$. \\
+              Similarly, we can make $g(b)$ be arbitrarily small by letting $b \to \infty$.
+              This implies $\exists b_1 > 0 : g(b_1) < 0$.
+
+              Since $g$ is differentiable on $\mathbb{R}$, $g$ is also continuous and
+              therefore has the Intermediate Value Property.
+              There exists $\theta \in (a_1, b_1)$ such that $g(\theta) = 0$ or $f(\theta) = \theta$.
+
+              Now suppose $\exists \theta_1, \theta_2 \in \mathbb{R}$, $\theta_1 \neq \theta_2$
+              such that $f(\theta_1) = \theta_1$ and $f(\theta_2) = \theta_2$.
+              It follows that:
+              \[
+                  1 = \frac{f(\theta_1) - f(\theta_2)}{\theta_1 - \theta_2} < L
+              \]
+              which is a contradiction. Thus, the fixed point is unique.
+        \item[(b)]
+              Let $L = 1$. We know that $g(x)$ is decreasing on $\mathbb{R}$ since
+              $g'(x) = f'(x) - 1 < 0$, $\forall x \in \mathbb{R}$.
+              We want to find an example that fails to have a root, meaning $g$ needs
+              to be decreasing but never cross $y = 0$.
+
+              Let $g(x) = e^{-x}$. We then have:
+              \begin{align*}
+                  f(x)           & = e^{-x} + x                                      \\
+                  \implies f'(x) & = 1 - e^{-x} < 1, \quad \forall x \in \mathbb{R},
+              \end{align*}
+              which satisfies our desired condition.
+
+              Now, checking for a fixed point:
+              \begin{align*}
+                           & f(x) = x       \\
+                  \implies & e^{-x} + x = x \\
+                  \implies & e^{-x} = 0
+              \end{align*}
+
+              But $e^{-x} > 0$, $\forall x \in \mathbb{R}$, so there is no fixed point.
+    \end{itemize}
+\end{solution}

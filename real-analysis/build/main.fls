@@ -358,6 +358,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT ./problems/p8.tex
+INPUT ./problems/p8.tex
+INPUT problems/p8.tex
 INPUT ./appendix.tex
 INPUT ./appendix.tex
 INPUT appendix.tex
