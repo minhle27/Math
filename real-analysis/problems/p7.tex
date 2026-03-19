@@ -1,0 +1,77 @@
+\begin{problem}{}{}{Real Mathematical Analysis, Pugh, Ex.2 p.198}
+A function $f : (a,b) \to \mathbb{R}$ satisfies a \textbf{H\"older condition}
+of order $\boldsymbol{\alpha}$ if $\alpha > 0$, and for some constant $H$
+and all $u,x \in (a,b)$ we have
+\[
+    |f(u) - f(x)| \le H|u - x|^\alpha
+\]
+The function is said to be $\alpha$-H\"older, with $\alpha$-H\"older
+constant $H$. (The terms ``Lipschitz function of order $\alpha$'' and
+``$\alpha$-Lipschitz function'' are sometimes used with the same meaning.)
+
+\begin{enumerate}
+    \item[(a)] Prove that an $\alpha$-H\"older function defined on $(a,b)$
+          is uniformly continuous and infer that it extends uniquely to a
+          continuous function defined on $[a, b]$. Is the extended function
+          $\alpha$-H\"older?
+
+    \item[(b)] What does $\alpha$-H\"older continuity mean when $\alpha = 1$?
+
+    \item[(c)] Prove that $\alpha$-H\"older continuity when $\alpha > 1$
+          implies that $f$ is constant.
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{itemize}
+        \item[(a)]
+              Let $\varepsilon > 0$. Choose $\delta = \sqrt[\alpha]{\frac{\varepsilon}{H}}$. Now, for every $u, x \in (a, b)$ and $|u - x| < \delta$ implies
+              \[
+                  |f(u) - f(x)| \leq H|u - x|^\alpha < H\delta^\alpha = H \frac{\varepsilon}{H} = \varepsilon.
+              \]
+              Thus, $f$ is uniformly continuous on $(a, b)$.
+
+              \begin{remark}{}
+                  Uniform continuity implies that if $(x_n)$ is Cauchy then $(f(x_n))$ is also a Cauchy sequence.
+              \end{remark}
+
+              Let $(x_n)$ be a sequence in $(a, b)$, $(x_n) \to a$. It follows that $(f(x_n))$ also converges
+              to a finite value $L$ since $\mathbb{R}$ is complete. It makes sense to define $\lim_{x \to a^+} f(x) = L$
+              by Theorem 4.2.3 (\textit{Understanding Analysis}, Abbott).
+
+              For $g$ to be an extension of $f$ that is continuous on $[a, b]$. We must define
+              $g(a) = \lim_{x \to a^+} f(x) = L$. Likewise for endpoint $b$. Since this is the
+              only way to construct such a $g$, $g$ is unique.
+
+              To check if $g$ is $\alpha$-Hölder, we need to check:
+              \begin{itemize}
+                  \item[(1):] $|g(a) - g(x)| = |L - f(x)| \leq H|a - x|^\alpha$, for all $x \in (a, b)$
+
+                        This is true since for any $t, x \in (a, b)$, we have:
+                        \begin{alignat*}{2}
+                             &                & |f(t) - f(x)|                  & \leq H|t - x|^\alpha                  \\
+                             & \implies \quad & \lim_{t \to a^+} |f(t) - f(x)| & \leq \lim_{t \to a^+} H|t - x|^\alpha \\
+                             & \implies \quad & |L - f(x)|                     & \leq H|a - x|^\alpha
+                        \end{alignat*}
+
+                  \item[(2):] $|g(b) - g(x)| \leq H|b - x|^\alpha$ \quad (true for similar reason)
+                  \item[(3):] $|g(b) - g(a)| \leq H|b - a|^\alpha$ \quad (take limit of (2) as $x \to a^+$)
+              \end{itemize}
+        \item[(b)]
+              If $\alpha = 1$, the $\alpha$-Hölder condition becomes:
+              $$ |f(u) - f(x)| \le H|u - x| $$
+
+              Geometrically, this means the absolute value of the slope
+              of the secant line between any two points is bounded by $H$.
+        \item[(c)]
+              Let $\alpha > 1$. Let $u,x \in (a,b)$, $u \neq x$. We have:
+              \begin{alignat*}{2}
+                   &                & |f(u) - f(x)|                                           & \leq H|u - x|^\alpha                      \\
+                   & \implies \quad & \left| \frac{f(u) - f(x)}{u - x} \right|                & \leq H|u - x|^{\alpha - 1}                \\
+                   & \implies \quad & \lim_{x \to u} \left| \frac{f(u) - f(x)}{u - x} \right| & \leq \lim_{x \to u} H|u - x|^{\alpha - 1} \\
+                   & \implies \quad & |f'(u)|                                                 & \leq 0                                    \\
+                   & \implies \quad & f'(u)                                                   & = 0, \quad \forall u \in (a,b)
+              \end{alignat*}
+              This implies $f$ is constant on $(a,b)$.
+    \end{itemize}
+\end{solution}
