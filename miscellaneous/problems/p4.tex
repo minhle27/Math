@@ -1,0 +1,88 @@
+\begin{problem}{}{}{CS229 Stanford 2018 - Problem set 4}
+Consider an MDP with finite state and action spaces, and discount factor
+$\gamma < 1$. Let $B$ be the Bellman update operator with $V$ a vector of
+values for each state. I.e., if $V' = B(V)$, then
+$$
+    V'(s) = R(s) + \gamma \max_{a \in A} \sum_{s' \in S} P_{sa}(s')V(s').
+$$
+
+\begin{enumerate}
+    \item[(a)] Prove that, for any two finite-valued vectors
+          $V_1, V_2$, it holds true that
+          $$
+              ||B(V_1) - B(V_2)||_\infty \le \gamma ||V_1 - V_2||_\infty.
+          $$
+          where
+          $$
+              ||V||_\infty = \max_{s \in S} |V(s)|.
+          $$
+          (This shows that the Bellman update operator is a ``$\gamma$-contraction
+          in the max-norm.")
+
+    \item[(b)] We say that $V$ is a \textbf{fixed point} of $B$
+          if $B(V) = V$. Using the fact that the Bellman update operator is a
+          $\gamma$-contraction in the max-norm, prove that $B$ has at most
+          one fixed point---i.e., that there is at most one solution to the
+          Bellman equations. You may assume that $B$ has at least one fixed point.
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{itemize}
+        \item[(a)]
+              Let $V_1, V_2$ be any two finite-valued vectors.
+                  {\allowdisplaybreaks
+                      \begin{alignat*}{2}
+                           &                                                                                    & B(V_1)(s)                  & = V_1'(s) = R(s) + \gamma \max_{a \in A} \sum_{s' \in S} P_{sa}(s') V_1(s')                \\
+                           &                                                                                    & B(V_2)(s)                  & = V_2'(s) = R(s) + \gamma \max_{a \in A} \sum_{s' \in S} P_{sa}(s') V_2(s')                \\[2ex]
+                           & \implies                                                                           & |B(V_1)(s) - B(V_2)(s)|
+                           & = \gamma \left| \max_{a \in A} \sum_{s' \in S} P_{sa}(s') V_1(s')
+                          - \max_{a \in A} \sum_{s' \in S} P_{sa}(s') V_2(s') \right|                                                                                                                                                     \\[2ex]
+                           & \implies                                                                           & ||B(V_1) - B(V_2)||_\infty
+                           & = \gamma \max_{s \in S} \left| \max_{a \in A} \mathbb{E}_{s' \sim P_{sa}}[V_1(s')]
+                          - \max_{a \in A} \mathbb{E}_{s' \sim P_{sa}}[V_2(s')] \right|                                                                                                                                                   \\[2ex]
+                           & \implies                                                                           & ||B(V_1) - B(V_2)||_\infty
+                           & \overset{(1)}{\le} \gamma \max_{s \in S} \max_{a \in A}
+                          \left| \mathbb{E}_{s' \sim P_{sa}}[V_1(s') - V_2(s')] \right|                                                                                                                                                   \\
+                           &                                                                                    &                            & = \gamma \max_{s \in S} \left| \mathbb{E}_{s' \sim P_{sa^*}}[V_1(s') - V_2(s')] \right|    \\
+                           &                                                                                    &                            & \qquad \left(\text{where } a^* = \operatorname*{argmax}_{a \in A}\
+                          \left| \mathbb{E}_{s' \sim P_{sa}}[V_1(s') - V_2(s')] \right| \right)                                                                                                                                           \\
+                           &                                                                                    &                            & \overset{(2)}{\le} \gamma \max_{s \in S} \mathbb{E}_{s' \sim P_{sa^*}} |V_1(s') - V_2(s')| \\
+                           &                                                                                    &                            & \le \gamma \max_{s \in S} \max_{s' \in S} |V_1(s') - V_2(s')|                              \\
+                           &                                                                                    &                            & = \gamma \max_{s' \in S} |V_1(s') - V_2(s')|                                               \\
+                           &                                                                                    &                            & = \gamma ||V_1 - V_2||_\infty
+                      \end{alignat*}
+                  }
+
+              The inequality (1) follows by the fact that:
+              $$
+                  |\max_x f(x) - \max_x g(x)| \le \max_x |f(x) - g(x)|
+              $$
+
+              The inequality (2) follows by Jensen's inequality.
+        \item[(b)]
+              Suppose $B$ has two different fixed points $V_1, V_2$. From part (a), we know that $B$ is a $\gamma$-contraction in the max-norm. Since $V_1$ and $V_2$ are different, we know $||V_1 - V_2||_\infty > 0$. We have:
+              \begin{alignat*}{2}
+                   &                 & ||B(V_1) - B(V_2)||_\infty & \le \gamma ||V_1 - V_2||_\infty \\[1ex]
+                   & \implies \qquad & ||V_1 - V_2||_\infty       & \le \gamma ||V_1 - V_2||_\infty \\[1ex]
+                   & \implies \qquad & 1                          & \le \gamma
+              \end{alignat*}
+
+              Which contradicts the fact that $\gamma < 1$.
+
+              Thus, $B$ has exactly one fixed point if we assume $B$ has at least one fixed point.
+              I have proved in the simplified setting where we consider $f: \mathbb{R} \to \mathbb{R}$ be differentiable
+              and $f'(x) < L$, $L < 1$ that $f$ has at least one fixed point and, in fact, exactly one.
+              (Real Analysis note, problem 8)
+    \end{itemize}
+    \begin{remark}{Convergence of Value Iteration Algorithm}
+        Let $V^*$ be the fixed point of $B$, meaning $B(V^*) = V^*$.
+        We have
+        $$
+            ||B^t(V) - V^*||_\infty \le \gamma^t ||V - V^*||_\infty, \quad \forall t \in \mathbb{N}
+        $$
+        This means that value iteration converges geometrically to the optimal
+        value function $V^*$. That is, after $t$ iterations, the distance between $V$
+        and $V^*$ is at most $\gamma^t ||V - V^*||_\infty$.
+    \end{remark}
+\end{solution}
