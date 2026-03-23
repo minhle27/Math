@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1774046732.80822 "/Users/mabook/Documents/Math/miscellaneous/main.tex" "build/main.pdf" "main" 1774046734.00219 0
+["pdflatex"] 1774231330.47635 "/Users/mabook/Documents/Math/miscellaneous/main.tex" "build/main.pdf" "main" 1774231331.59535 0
   "../Template/Note/header.tex" 1773777840.07215 4248 6c681b337a170c0ea7480ca11ad982d3 ""
   "../Template/math.tex" 1772331936.1648 392 77f6112c6e7371705b37ef9aa5a04c80 ""
   "/Users/mabook/Documents/Math/miscellaneous/main.tex" 1774023451.08217 566 bca8655a7f841b9f098223d74acba95b ""
@@ -205,13 +205,13 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1763592299 3345739 4e7de2fdf7c7de5ab401c536298ce592 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Figures/cover.png" 1772396424.84711 532164 e91e1e0ab419216171fe85209863c6a3 ""
-  "build/main.aux" 1774046733.91295 368 d10eac54d4beb51393aa54a87efbe32a "pdflatex"
-  "build/main.out" 1774046733.45621 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "build/main.aux" 1774231331.51312 411 f3cb8bcdcf1bdd79f8126475dbed26dc "pdflatex"
+  "build/main.out" 1774231331.04847 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "main.tex" 1774023451.08217 566 bca8655a7f841b9f098223d74acba95b ""
   "problems/p1.tex" 1772556615.78325 13165 2e3c155e142a5e91a4d4442a6ca1f247 ""
   "problems/p2.tex" 1773693649.55158 2447 6d10f72b8f6f0241bd53ad746075012a ""
   "problems/p3.tex" 1773694202.5101 8285 bc88c1f5d67e0eda914ea54e96e8ca33 ""
-  "problems/p4.tex" 1774046732.65162 6714 7d57647a3d7900b6aedc55c61ea4624d ""
+  "problems/p4.tex" 1774231330.32432 8275 bfd96200d0a9b969e4f0b6d709ba0248 ""
   (generated)
   "build/main.aux"
   "build/main.log"

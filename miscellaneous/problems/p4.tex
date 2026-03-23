@@ -24,6 +24,10 @@ $$
           $\gamma$-contraction in the max-norm, prove that $B$ has at most
           one fixed point---i.e., that there is at most one solution to the
           Bellman equations. You may assume that $B$ has at least one fixed point.
+
+    \item[(c)]
+          Show that in implementing value iteration, we can stop iterating once we have found a vector
+          $V$ such that $||B(V) - V||_\infty < \text{tolerance}$ for some predefined tolerance.
 \end{enumerate}
 \end{problem}
 
@@ -74,15 +78,35 @@ $$
               I have proved in the simplified setting where we consider $f: \mathbb{R} \to \mathbb{R}$ be differentiable
               and $f'(x) < L$, $L < 1$ that $f$ has at least one fixed point and, in fact, exactly one.
               (Real Analysis note, problem 8)
+              \begin{remark}{Convergence of Value Iteration Algorithm}
+                  Let $V^*$ be the fixed point of $B$, meaning $B(V^*) = V^*$.
+                  We have
+                  $$
+                      ||B^t(V) - V^*||_\infty \le \gamma^t ||V - V^*||_\infty, \quad \forall t \in \mathbb{N}
+                  $$
+                  This means that value iteration converges geometrically to the optimal
+                  value function $V^*$. That is, after $t$ iterations, the distance between $V$
+                  and $V^*$ is at most $\gamma^t ||V - V^*||_\infty$.
+              \end{remark}
+        \item[(c)]
+              Suppose we want $\|V - V^*\|_\infty < \epsilon$, for any $\epsilon > 0$.
+
+              By the Triangle Inequality, we have:
+              \begin{equation}
+                  \|V - B(V)\|_\infty + \|B(V) - V^*\|_\infty \geq \|V - V^*\|_\infty \label{eq:1}
+              \end{equation}
+
+              Since $B$ is a $\gamma$-contraction mapping (and $V^*$ is its fixed point, so $B(V^*) = V^*$), we know:
+              $$ \|B(V) - V^*\|_\infty \leq \gamma \|V - V^*\|_\infty $$
+
+              Plugging this into (\ref{eq:1}), we have:
+              \begin{align*}
+                   &          & \|V - V^*\|_\infty                             & \leq \|V - B(V)\|_\infty + \gamma \|V - V^*\|_\infty                              \\
+                   & \implies & \|V - V^*\|_\infty - \gamma \|V - V^*\|_\infty & \leq \|V - B(V)\|_\infty                                                          \\
+                   & \implies & \|V - V^*\|_\infty                             & \leq \frac{\|V - B(V)\|_\infty}{1 - \gamma} = \frac{\text{Tolerance}}{1 - \gamma}
+              \end{align*}
+
+              Thus, we can define $\text{Tolerance} < \epsilon(1 - \gamma)$ to guarantee that $\|V - V^*\|_\infty < \epsilon$.
     \end{itemize}
-    \begin{remark}{Convergence of Value Iteration Algorithm}
-        Let $V^*$ be the fixed point of $B$, meaning $B(V^*) = V^*$.
-        We have
-        $$
-            ||B^t(V) - V^*||_\infty \le \gamma^t ||V - V^*||_\infty, \quad \forall t \in \mathbb{N}
-        $$
-        This means that value iteration converges geometrically to the optimal
-        value function $V^*$. That is, after $t$ iterations, the distance between $V$
-        and $V^*$ is at most $\gamma^t ||V - V^*||_\infty$.
-    \end{remark}
+
 \end{solution}
