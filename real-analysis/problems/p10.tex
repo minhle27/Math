@@ -1,0 +1,84 @@
+\begin{problem}{}{}{Real Mathematical Analysis, Pugh, Ex.45, p.52}
+Let $(a_n)$ be a sequence of real numbers. It is \textbf{bounded} if the set $A = \{a_1, a_2, \dots \}$
+is bounded. The \textbf{limit supremum}, or lim sup, of a bounded sequence $(a_n)$ as
+$n \to \infty$ is
+\[
+    \limsup_{n \to \infty} a_n = \lim_{n \to \infty} \left( \sup_{k \ge n} a_k \right)
+\]
+
+\begin{enumerate}
+    \item[(a)] Why does the $\limsup$ exist?
+    \item[(b)] If $\sup \{a_n\} = \infty$, how should we define $\limsup_{n \to \infty} a_n$?
+    \item[(c)] If $\lim_{n \to \infty} a_n = -\infty$, how should we define $\limsup_{n \to \infty} a_n$?
+    \item[(d)] When is it true that
+          \begin{align*}
+              \limsup_{n \to \infty} (a_n + b_n) & \le \limsup_{n \to \infty} a_n + \limsup_{n \to \infty} b_n \\
+              \limsup_{n \to \infty} c a_n       & = c \limsup_{n \to \infty} a_n ?
+          \end{align*}
+          When is it true they are unequal? Draw pictures that illustrate these relations.
+    \item[(e)] Define the \textbf{limit infimum}, or $\liminf$, of a sequence of real numbers, and
+          find a formula relating it to the limit supremum.
+    \item[(f)] Prove that $\lim_{n \to \infty} a_n$ exists if and only if the sequence $(a_n)$ is bounded and
+          $\liminf_{n \to \infty} a_n = \limsup_{n \to \infty} a_n$.
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{itemize}
+        \item[(a)]
+              Define $y_n = \sup_{k \ge n} a_k$. Since $(a_n)$ is bounded,
+              $\exists M \in \mathbb{R}$ such that $-M \le a_n \le M, \forall n \in \mathbb{N}$.
+
+              Observe that $(y_n)$ is a decreasing sequence, $y_n = \sup_{k \ge n} a_k \ge \sup_{k \ge n+1}
+                  a_k = y_{n+1}$ for all $n \in \mathbb{N}$.
+
+              $(y_n)$ is bounded below by $-M$ since $y_n = \sup_{k \ge n} a_k \ge a_k \ge -M$.
+              Therefore, $(y_n)$ converges and $\limsup_{n \to \infty} a_n$ exists.
+        \item[(b)]
+              If $\sup \{a_n\} = \infty$, then $y_n = \infty, \forall n \in \mathbb{N}$. Therefore,
+              we should define $\limsup_{n \to \infty} a_n = \lim_{n \to \infty} y_n = \infty$.
+        \item[(c)]
+              If $\lim_{n \to \infty} a_n = -\infty$ then the sequence
+              $y_n = \sup_{k \ge n} a_k$ also goes to $-\infty$. We should define
+              $\limsup_{n \to \infty} a_n = -\infty$.
+        \item[(d)]
+              Suppose $(a_n)$ and $(b_n)$ are bounded, then it is true that $a_i + b_i
+                  \le \sup_{k \ge n} a_k + \sup_{k \ge n} b_k$ for all $n \in \mathbb{N}, i \ge n$.
+              This implies $\sup_{k \ge n} (a_k + b_k) \le \sup_{k \ge n} a_k + \sup_{k \ge n} b_k$.
+
+              Therefore, $\limsup_{n \to \infty} (a_n + b_n) \le \limsup_{n \to \infty} a_n + \limsup_{n \to \infty} b_n$.
+
+              If $c \ge 0$, $\limsup_{n \to \infty} (c a_n) = c \limsup_{n \to \infty} a_n$ because positive
+              scaling preserves the order of suprema.
+
+              If $c < 0$, $\limsup_{n \to \infty} (c a_n) = c \liminf_{n \to \infty} a_n$.
+        \item[(e)]
+              Suppose $(a_n)$ is a bounded sequence of real numbers. Then
+              \[
+                  \liminf_{n \to \infty} a_n = \lim_{n \to \infty} \left( \inf_{k \ge n} a_k \right)
+              \]
+              We have $\inf_{k \ge n} a_k \le \sup_{k \ge n} a_k \implies \liminf_{n \to \infty} a_n \le \limsup_{n \to \infty} a_n$.
+
+        \item[(f)]($\Rightarrow$): Suppose $\lim_{n \to \infty} a_n$ exists, $\lim_{n \to \infty} a_n = L$. Since $(a_n)$ converges, $(a_n)$ is bounded.
+
+              We claim that $\liminf_{n \to \infty} a_n = L$. Let $\varepsilon > 0$. $\exists N \in \mathbb{N}$ such
+              that for all $k \ge N$ we have $L - \frac{\varepsilon}{2} < a_k < L + \frac{\varepsilon}{2}$.
+              Since $L - \frac{\varepsilon}{2}$ is a lower bound for $\{a_k \mid k \ge N\}$,
+              we have $L - \frac{\varepsilon}{2} \le \inf_{k \ge N} a_k$. For all $n \ge N$, we have:
+              \[
+                  L - \frac{\varepsilon}{2} \le \inf_{k \ge N} a_k \le \inf_{k \ge n} a_k \le a_n < L + \frac{\varepsilon}{2}
+              \]
+              Therefore, $\inf_{k \ge n} a_k \in V_\varepsilon(L)$ for all $n \ge N$. This means $\liminf_{n \to \infty} a_n = L$.
+              Similarly, $\limsup_{n \to \infty} a_n = L$. We conclude that $\liminf_{n \to \infty}
+                  a_n = \limsup_{n \to \infty} a_n$.
+
+              ($\Leftarrow$): Suppose $(a_n)$ is bounded and $\limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n = L$. 
+              We will try to prove that $\lim_{n \to \infty} a_n = L$. Fix $n \in \mathbb{N}$, we have
+              \[
+                  \inf_{k \ge n} a_k \le a_n \le \sup_{k \ge n} a_k
+              \]
+              By the Squeeze Theorem, since $\lim_{n \to \infty} (\inf_{k \ge n} a_k) =
+               L$ and $\lim_{n \to \infty} (\sup_{k \ge n} a_k) = L$, this implies that $\lim_{n \to \infty} a_n = L$.
+
+    \end{itemize}
+\end{solution}

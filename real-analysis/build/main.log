@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.19)  24 MAR 2026 23:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.19)  25 MAR 2026 18:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -580,6 +580,9 @@ LaTeX Warning: Label `prob:' multiply defined.
 
 LaTeX Warning: Label `prob:' multiply defined.
 
+
+LaTeX Warning: Label `prob:' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -712,13 +715,17 @@ l.6
 
 [7]) (./problems/p9.tex
 
-[8]) (./appendix.tex
+[8]) (./problems/p10.tex
 
 [9]
+
+[10]) (./appendix.tex
+
+[11]
 Appendix A.
 )
 
-[10
+[12
 
 ] (build/main.aux)
  ***********
@@ -733,18 +740,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D185908D3D0068E73A451D69EFE0C77C;196.
  ) 
 Here is how much of TeX's memory you used:
- 27471 strings out of 473190
- 554468 string characters out of 5715799
- 980476 words of memory out of 5000000
- 50227 multiletter control sequences out of 15000+600000
+ 27483 strings out of 473190
+ 554650 string characters out of 5715799
+ 980479 words of memory out of 5000000
+ 50233 multiletter control sequences out of 15000+600000
  570542 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,10n,108p,519b,1661s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on build/main.pdf (12 pages, 267677 bytes).
+Output written on build/main.pdf (14 pages, 274756 bytes).
 PDF statistics:
- 218 PDF objects out of 1000 (max. 8388607)
- 137 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
+ 228 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
  170 words of extra memory for PDF output out of 10000 (max. 10000000)
 
