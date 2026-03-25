@@ -1,0 +1,24 @@
+\begin{problem}{}{}{Real Mathematical Analysis, Pugh, Ex. 28, p.203}
+Suppose that $Z \subset \mathbb{R}$. Prove that the following are equivalent.
+\begin{enumerate}
+    \item[(i)] $Z$ is a zero set.
+    \item[(ii)] For each $\epsilon > 0$ there is a countable covering of $Z$ by closed intervals $[a_i, b_i]$ with total length $\sum b_i - a_i < \epsilon$.
+    \item[(iii)] For each $\epsilon > 0$ there is a countable covering of $Z$ by sets $S_i$ with total diameter $\sum \operatorname{diam} S_i < \epsilon$.
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \textbf{(i) $\Rightarrow$ (ii):} Let $\epsilon > 0$. Since $Z$ is a zero set, there is a countable covering of $Z$ by open intervals $(a_i, b_i)$ such that $\sum (b_i - a_i) \leq \frac{\epsilon}{2}$.
+    Consider the collection of closed intervals $[a_i, b_i]$. Clearly, this collection is a countable covering of $Z$ and $\sum (b_i - a_i) \leq \frac{\epsilon}{2} < \epsilon$.
+
+    \textbf{(ii) $\Rightarrow$ (iii):} Trivial since we can define $S_i = [a_i, b_i]$.
+
+    \textbf{(iii) $\Rightarrow$ (i):} Let $\epsilon > 0$. There is a countable covering of $Z$ by sets $S_i$ such that $\sum \operatorname{diam} S_i < \frac{\epsilon}{2}$.
+    Since $S_i$ is bounded, define $a_i = \inf S_i$ and $b_i = \sup S_i$.
+    Consider the open interval $\left(a_i - \frac{\epsilon}{2^{i+2}}, b_i + \frac{\epsilon}{2^{i+2}}\right)$. We have $S_i \subset [a_i, b_i] \subset \left(a_i - \frac{\epsilon}{2^{i+2}}, b_i + \frac{\epsilon}{2^{i+2}}\right)$, which implies this collection of open intervals is a countable covering of $Z$.
+
+    The total length of the covering is:
+    \[
+        \sum_{i=1}^{\infty} \left(b_i - a_i + \frac{\epsilon}{2^{i+1}}\right) = \sum_{i=1}^{\infty} \operatorname{diam} S_i + \frac{\epsilon}{2} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon
+    \]
+\end{solution}

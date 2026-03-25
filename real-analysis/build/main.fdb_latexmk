@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1773959427.14122 "/Users/mabook/Documents/Math/real-analysis/main.tex" "build/main.pdf" "main" 1773959428.44604 0
+["pdflatex"] 1774408642.7694 "/Users/mabook/Documents/Math/real-analysis/main.tex" "build/main.pdf" "main" 1774408643.88569 0
   "../Template/Note/header.tex" 1773777840.07215 4248 6c681b337a170c0ea7480ca11ad982d3 ""
   "../Template/math.tex" 1772331936.1648 392 77f6112c6e7371705b37ef9aa5a04c80 ""
-  "/Users/mabook/Documents/Math/real-analysis/main.tex" 1773883599.17412 820 7df4845e4e5223223e99f70c90d1e49a ""
+  "/Users/mabook/Documents/Math/real-analysis/main.tex" 1774369742.61869 820 b2893ca964685dd810a7003ec98d520f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -213,9 +213,9 @@
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Figures/cover.png" 1772314566.7587 9850 86055288bf8755befc746b912233b71c ""
   "appendix.tex" 1772314816.35354 39 7b8b500eebfce43b9e1ce1885cf4c3f6 ""
-  "build/main.aux" 1773959428.36306 687 a2f2e43861e54eadd8256157446210d6 "pdflatex"
-  "build/main.out" 1773959428.36348 196 d185908d3d0068e73a451d69efe0c77c "pdflatex"
-  "main.tex" 1773883599.17412 820 7df4845e4e5223223e99f70c90d1e49a ""
+  "build/main.aux" 1774408643.80597 728 2a9e63e1ff48ec4f57e5b0ba3844924b "pdflatex"
+  "build/main.out" 1774408643.80653 196 d185908d3d0068e73a451d69efe0c77c "pdflatex"
+  "main.tex" 1774369742.61869 820 b2893ca964685dd810a7003ec98d520f ""
   "problems/p1.tex" 1772379021.79299 834 90be9e625a45fa64ec4e155bb6539ed8 ""
   "problems/p2.tex" 1772379054.26908 1988 0e8f1001dae02366a2f38ffec914846c ""
   "problems/p3.tex" 1773774837.74134 840 c32ee63df7e7e6262cb27f8e19342428 ""
@@ -224,6 +224,7 @@
   "problems/p6.tex" 1773780432.92486 6646 75bb46c993d69fe25b8aa39d11e67a25 ""
   "problems/p7.tex" 1773883517.28961 4325 58db2d19d7719a5f27f5d06a87fa30f0 ""
   "problems/p8.tex" 1773959427.01501 3479 06d2aa015f5c2b31c8a6c404f9d80fa0 ""
+  "problems/p9.tex" 1774408642.63553 1851 cf264d32f7f1ac52ad559c47e6bf15f8 ""
   (generated)
   "build/main.aux"
   "build/main.log"
