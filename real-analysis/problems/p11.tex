@@ -1,0 +1,48 @@
+\begin{problem}{}{}{Real Mathematical Analysis, Pugh, Ex.19, p.201}
+Recall that the oscillation of an arbitrary function $f : [a,b] \to \mathbb{R}$ at $x$ is
+\[
+    \operatorname{osc}_x f = \limsup_{t \to x} f(t) - \liminf_{t \to x} f(t)
+\]
+In the proof of the Riemann-Lebesgue Theorem $D_k$ refers to the set of points
+with oscillation $\ge 1/k$.
+\begin{enumerate}
+    \item[(a)] Prove that $D_k$ is closed.
+    \item[(b)] Infer that the discontinuity set of $f$ is a countable union of closed sets.
+          (This is called an \textbf{$\boldsymbol{F_\sigma}$-set}.)
+    \item[(c)] Infer from (b) that the set of continuity points is a countable intersection
+          of open sets. (This is called a \textbf{$\boldsymbol{G_\delta}$-set}.)
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \begin{itemize}
+        \item[(a)]
+              \[ D_k = \left\{ x \in [a,b] : \operatorname{osc}_x(f) \ge \frac{1}{k} \right\} \]
+
+              Let $(x_n)$ be a convergent sequence contained in $D_k$, with $x_n \to p$.
+              We want to show that $p \in D_k$. Suppose that $p \notin D_k$, then we
+              have $\operatorname{osc}_p(f) < \frac{1}{k}$.
+
+              There is an open interval $I$ containing $p$ such that:
+              \[ \sup \{ f(t) : t \in I \} - \inf \{ f(t) : t \in I \} < \frac{1}{k} \]
+
+              Since $x_n \to p$, we can pick a term from the sequence that lies in the interval $I$,
+              say $x_m$. It follows that:
+              \[ \operatorname{osc}_{x_m}(f) \le \sup \{ f(t) : t \in I \} - \inf \{ f(t) :
+                  t \in I \} < \frac{1}{k} \]
+
+              This contradicts the fact that $\operatorname{osc}_{x_m}(f) \ge \frac{1}{k}$.
+              Therefore, $p \in D_k$ and $D_k$ is closed.
+        \item[(b)]
+              $f$ is continuous at $x \iff \operatorname{osc}_x(f) = 0$. Therefore,
+              $D = \{ \text{set of discontinuity points of } f \}$
+              \[ = \{x \in [a,b] : \operatorname{osc}_x(f) > 0\} = \bigcup_{k=1}^{\infty} D_k \]
+
+              Therefore, $D$ is a countable union of closed sets.
+        \item[(c)]
+              Let $C$ be the set of continuity points. 
+              \[ C = D^C = \left( \bigcup_{k=1}^\infty D_k \right)^C = \bigcap_{k=1}^\infty D_k^C \]
+              Since each $D_k$ is closed, each $D_k^C$ is open. Therefore, $C$ is a 
+              countable intersection of open sets.
+    \end{itemize}
+\end{solution}
