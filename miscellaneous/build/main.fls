@@ -342,6 +342,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.e
 INPUT ./problems/p4.tex
 INPUT ./problems/p4.tex
 INPUT problems/p4.tex
+INPUT ./problems/p5.tex
+INPUT ./problems/p5.tex
+INPUT problems/p5.tex
 INPUT build/main.aux
 INPUT build/main.out
 INPUT build/main.out

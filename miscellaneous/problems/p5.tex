@@ -1,0 +1,38 @@
+\begin{problem}{}{}{UCB CS285 FA23 - Homework 1}
+Consider the problem of imitation learning within a discrete MDP with
+horizon $T$ and an expert policy $\pi^*$. We gather expert demonstrations
+from $\pi^*$ and fit an imitation policy $\pi_\theta$ to these trajectories so that
+
+$$ \mathbb{E}_{p_{\pi^*}(s)} \pi_\theta(a \neq \pi^*(s) \mid s)
+    = \frac{1}{T} \sum_{t=1}^T \mathbb{E}_{p_{\pi^*}(s_t)} \pi_\theta(a_t \neq \pi^*(s_t) \mid s_t) \leq \varepsilon, $$
+
+i.e., the expected likelihood that the learned policy $\pi_\theta$ disagrees
+with the expert $\pi^*$ within the training distribution $p_{\pi^*}$ of states
+drawn from random expert trajectories is at most $\varepsilon$.
+
+For convenience, the notation $p_\pi(s_t)$ indicates the state distribution
+under $\pi$ at time step $t$ while $p(s)$ indicates the state marginal of
+$\pi$ across time steps, unless indicated otherwise.
+
+\begin{enumerate}
+    \item Show that $\sum_{s_t} |p_{\pi_\theta}(s_t) - p_{\pi^*}(s_t)| \leq 2T\varepsilon$.
+    \item Consider the expected return of the learned policy $\pi_\theta$ for a
+          state-dependent reward $r(s_t)$, where we assume the reward is bounded
+          with $|r(s_t)| \leq R_{\text{max}}$:
+
+          $$ J(\pi) = \sum_{t=1}^T \mathbb{E}_{p_{\pi}(s_t)} r(s_t). $$
+
+          \begin{enumerate}
+              \item[(a)] Show that $J(\pi^*) - J(\pi_\theta) = \mathcal{O}(T\varepsilon)$
+                    when the reward only depends on the last state, i.e., $r(s_t) = 0$
+                    for all $t < T$.
+
+              \item[(b)] Show that $J(\pi^*) - J(\pi_\theta) = \mathcal{O}(T^2\varepsilon)$
+                    for an arbitrary reward.
+          \end{enumerate}
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+
+\end{solution}
