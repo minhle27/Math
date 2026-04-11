@@ -34,5 +34,52 @@ $\pi$ across time steps, unless indicated otherwise.
 \end{problem}
 
 \begin{solution}
+    \begin{enumerate}
+        \item Let $M$ be the event of making at least one mistake up to time step $t$
+              (not including). We have:
+              $$ p_{\pi_\theta}(s_t) = (1 - P(M))p_{\pi^*}(s_t) + P(M)p_{\text{mistake}}(s_t) $$
+              \begin{align*}
+                  \implies \sum_{s_t} |p_{\pi_\theta}(s_t) - p_{\pi^*}(s_t)|
+                   & = \sum_{s_t} |P(M) (p_{\text{mistake}}(s_t) - p_{\pi^*}(s_t))| \\
+                   & = P(M) \sum_{s_t} |p_{\text{mistake}}(s_t) - p_{\pi^*}(s_t)|   \\
+                   & \le 2P(M) \tag{1}
+              \end{align*}
+              Let $m_k$ be the event that the first mistake happens at time step $k$,
+              for $k < t$. We have:
+              $$ M = \bigcup_{k=1}^{t-1} m_k $$
+              and $m_i$ are disjoint $\implies P(M) = \sum_{k=1}^{t-1} P(m_k)$.
 
+              We also have:
+              $$ P(m_k) = \sum_{s_k} p_{\pi^*}(s_k) \pi_\theta (a \neq \pi^*(s_k) \mid s_k)
+                  = \mathbb{E}_{p_{\pi^*}(s_k)} \pi_\theta(a \neq \pi^*(s_k) \mid s_k) $$
+              \begin{align*}
+                  \implies P(M) & = \sum_{k=1}^{t-1} P(m_k)                                                             \\
+                                & = \sum_{k=1}^{t-1} \mathbb{E}_{p_{\pi^*}(s_k)} \pi_\theta(a \neq \pi^*(s_k) \mid s_k) \\
+                                & \le \sum_{k=1}^{T} \mathbb{E}_{p_{\pi^*}(s_k)} \pi_\theta(a \neq \pi^*(s_k) \mid s_k) \\
+                                & \le T\varepsilon
+              \end{align*}
+              Plug the bound $P(M) \le T\varepsilon$ into (1), we complete the proof.
+        \item $J(\pi) = \sum_{t=1}^{T} E_{P_{\pi}(s_t)} r(s_t) \quad , \quad |r(s_t)| \le R_{\max}$
+
+              a) Reward only depends on the last state, $r(s_t) = 0$ for all $t < T$
+
+              \begin{align*}
+                  J(\pi^*) - J(\pi_\theta) & = \sum_{t=1}^{T} \left( E_{P_{\pi^*}(s_t)} r(s_t) - E_{P_{\pi_\theta}(s_t)} r(s_t) \right) \\
+                                           & = E_{P_{\pi^*}(s_T)} r(s_T) - E_{P_{\pi_\theta}(s_T)} r(s_T)                               \\
+                                           & = \sum_{s_T} P_{\pi^*}(s_T) r(s_T) - \sum_{s_T} P_{\pi_\theta}(s_T) r(s_T)                 \\
+                                           & = \sum_{s_T} (P_{\pi^*}(s_T) - P_{\pi_\theta}(s_T)) r(s_T)                                 \\
+                                           & \le 2T\epsilon R_{\max} = O(T\epsilon)
+              \end{align*}
+
+              b) For arbitrary reward
+
+              $$J(\pi^*) - J(\pi_\theta) = \sum_{t=1}^{T} \left( E_{P_{\pi^*}(s_t)} r(s_t) - E_{P_{\pi_\theta}(s_t)} r(s_t) \right)$$
+
+              Fix $t$, we have: $E_{P_{\pi^*}(s_t)} r(s_t) - E_{P_{\pi_\theta}(s_t)} r(s_t) = O(T\epsilon)$ (from (a))
+
+              We sum over $T$ terms, each term is $O(T\epsilon) \Rightarrow J(\pi^*) - J(\pi_\theta) = O(T^2\epsilon)$
+
+              So we have achieved a bound on the difference in performance
+              (measured by expected return) between optimal policy and imitation policy.
+    \end{enumerate}
 \end{solution}
