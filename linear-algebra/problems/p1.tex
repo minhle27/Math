@@ -1,0 +1,29 @@
+\begin{problem}{}{}{Linear Algebra Done Right - Ex.12 p.25}
+Prove that the union of two subspaces of $V$ is a subspace of $V$
+if and only if one of the subspaces is contained in the other.
+\end{problem}
+
+\begin{solution}
+    Let $V_1, V_2$ be two subspaces of $V$.
+
+    ($\Rightarrow$): Suppose that $V_1 \cup V_2$ is a subspace of $V$.
+    Suppose for contradiction that one of the subspaces $V_1$ or $V_2$
+    is not contained in the other.
+    We can choose $u, w$ such that $u \in V_1, u \notin V_2$
+    and $w \in V_2, w \notin V_1$.
+
+    Since $V_1 \cup V_2$ is a subspace, we have $u + w \in V_1 \cup V_2$.
+    This means $u + w$ must be in $V_1$ or $V_2$.
+
+    If $u + w \in V_1$, since $V_1$ is a subspace and $-u \in V_1$,
+    then $w = (u+w)-u \in V_1$, which is a contradiction.
+    Similarly, if $u + w \in V_2$, since $V_2$ is a subspace and $-w \in V_2$,
+    then $u = (u+w)-w \in V_2$, which is also a contradiction.
+
+    Therefore, $V_1 \subseteq V_2$ or $V_2 \subseteq V_1$.
+
+    ($\Leftarrow$): If $V_1 \subseteq V_2$ or $V_2 \subseteq V_1$,
+    then $V_1 \cup V_2 = V_2$ or $V_1 \cup V_2 = V_1$,
+    which is a subspace.
+
+\end{solution}

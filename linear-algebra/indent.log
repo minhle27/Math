@@ -1,12 +1,12 @@
 INFO:  latexindent version 3.24.4, 2024-07-18, a script to indent .tex files
        latexindent lives here: /usr/local/texlive/2025/texmf-dist/scripts/latexindent/
-       Sat Apr 11 21:51:30 2026
-       Filename: /Users/mabook/Documents/Math/linear-algebra/__latexindent_temp_main.tex
+       Sat Apr 11 22:44:08 2026
+       Filename: /Users/mabook/Documents/Math/linear-algebra/problems/__latexindent_temp_p1.tex
 INFO:  Processing switches:
        -y|--yaml: YAML settings specified via command line
        -c|--cruft: cruft directory
-INFO:  Directory for backup files and log file /Users/mabook/Documents/Math/real-analysis/indent.log:
-       /Users/mabook/Documents/Math/real-analysis/
+INFO:  Directory for backup files and log file /Users/mabook/Documents/Math/linear-algebra/indent.log:
+       /Users/mabook/Documents/Math/linear-algebra/
 INFO:  YAML settings read: defaultSettings.yaml
        Reading defaultSettings.yaml from /usr/local/texlive/2025/texmf-dist/scripts/latexindent/defaultSettings.yaml
 INFO:  YAML reading settings
