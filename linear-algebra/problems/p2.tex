@@ -1,0 +1,33 @@
+\begin{problem}{}{}{Linear Algebra Done Right - Ex.14 p.38}
+Suppose $v_1, \dots, v_m$ is a list of vectors in $V$.
+For $k \in \{1, \dots, m\}$, let
+$$w_k = v_1 + \dots + v_k.$$
+Show that the list $v_1, \dots, v_m$ is linearly independent
+if and only if the list $w_1, \dots, w_m$ is linearly independent.
+\end{problem}
+
+\begin{solution}
+    $(\Rightarrow)$: Suppose the list $v_1, \dots, v_m$ is linearly independent.
+    Consider a combination of $w_1, \dots, w_m$ such that:
+    \begin{align*}
+        c_1 w_1 + c_2 w_2 + \dots + c_m w_m                                       & = 0 \\
+        \Rightarrow c_1 v_1 + c_2(v_1+v_2) + \dots + c_m(v_1+v_2+\dots+v_m)       & = 0 \\
+        \Rightarrow (c_1+c_2+\dots+c_m)v_1 + (c_2+\dots+c_m)v_2 + \dots + c_m v_m & = 0
+    \end{align*}
+    Since $v_1, \dots, v_m$ are linearly independent, it follows that
+    $c_1 = c_2 = \dots = c_m = 0$.
+    Therefore, the list $w_1, \dots, w_m$ are linearly independent.
+
+    $(\Leftarrow)$: Suppose $w_1, \dots, w_m$ are linearly independent.
+    Consider a combination of $v_1, \dots, v_m$ such that:
+    \begin{align*}
+        c_1 v_1 + c_2 v_2 + \dots + c_m v_m & = 0 \\
+        \Rightarrow c_1 w_1 + c_2(w_2 - w_1) + c_3(w_3 - w_2) + \dots
+        + c_m(w_m - w_{m-1})                & = 0 \\
+        \Rightarrow (c_1 - c_2)w_1 + (c_2 - c_3)w_2 + \dots
+        + (c_{m-1} - c_m)w_{m-1} + c_m w_m  & = 0
+    \end{align*}
+    Since $w_1, \dots, w_m$ are linearly independent, it follows that
+    $c_1 = c_2 = \dots = c_m = 0$.
+    Therefore, the list $v_1, \dots, v_m$ are linearly independent.
+\end{solution}
