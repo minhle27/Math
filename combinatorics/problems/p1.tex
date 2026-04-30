@@ -1,0 +1,38 @@
+\begin{problem}{}{}{A Walk Through Combinatorics - Quick check 2, p.221 }
+For which values of \(n\) does there exist a balanced
+tournament on \(n\) vertices?
+\end{problem}
+
+\begin{solution}
+    We claim that there exists a balanced tournament on $n$ vertices
+    if and only if $n$ is odd.
+
+    ($\Rightarrow$): Since for every vertex $v$, we have
+    $\text{indeg}(v) = \text{outdeg}(v) = \frac{n-1}{2}$,
+    $n$ must be odd.
+
+    ($\Leftarrow$): Suppose we have an odd number of vertices ($n$ is odd).
+    We will prove by induction that there exists a balanced tournament $G$
+    on $n$ vertices, $n = 2k+1$, $k \in \mathbb{N}$.
+
+    \begin{itemize}
+        \item We can easily see that $k=0$ and $k=1$ is true.
+        \item Now suppose $P(k)$ is true for some $k \in \mathbb{N}$,
+              we will show that $P(k+1)$ is true.
+
+              Let $G$ be a balanced tournament over $n = 2k+1$ vertices.
+              Consider two additional vertices $v_1$ and $v_2$. We need to
+              create a balanced tournament $\tilde{G}$ by connecting $v_1$
+              and $v_2$ to $G$. This can be done by:
+
+              \begin{enumerate}
+                  \item Create an edge $v_1 \rightarrow v_2$.
+                  \item Create $k$ edges from $v_1$ to $k$ vertices in $G$. (set $U$) \\
+                        Create $k+1$ edges from $k+1$ remaining vertices in $G$ to $v_1$. (set $W$)
+                  \item Create $k$ edges from set $U$ to $v_2$. \\
+                        Create $k+1$ edges from $v_2$ to $W$.
+              \end{enumerate}
+    \end{itemize}
+
+    By induction, this is true for all $k \in \mathbb{N}$.
+\end{solution}
