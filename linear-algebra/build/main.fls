@@ -334,6 +334,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
 INPUT ./problems/p2.tex
 INPUT ./problems/p2.tex
 INPUT problems/p2.tex
+INPUT ./problems/p3.tex
+INPUT ./problems/p3.tex
+INPUT problems/p3.tex
 INPUT build/main.aux
 INPUT build/main.out
 INPUT build/main.out

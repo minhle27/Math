@@ -1,0 +1,17 @@
+\begin{problem}{}{}{Linear Algebra Done Right - Ex.5 p.43}
+Suppose $V$ is finite-dimensional and $U, W$ are subspaces of $V$ such that $V = U + W$.
+Prove that there exists a basis of $V$ consisting of vectors in $U \cup W$.
+\end{problem}
+
+\begin{solution}
+    Let $u_1, u_2, \dots, u_m$ be a basis of $U$
+    and $w_1, w_2, \dots, w_n$ be a basis of $W$.
+
+    Since $V = U + W$, we have the list
+    $\{u_1, u_2, \dots, u_m, w_1, w_2, \dots, w_n\}$ spans $V$.
+
+    Applying the procedure in Theorem 2.30 to reduce this list to a basis of $V$
+    produces a basis consisting of the vectors $u_1, \dots, u_m$
+    and some of the $w$'s (none of the $u$'s get deleted in this
+    procedure because $u_1, \dots, u_m$ is linearly independent).
+\end{solution}
