@@ -1,0 +1,37 @@
+\begin{problem}{}{}{A Walk Through Combinatorics - Quick check 3, p.221}
+Does there exist a tournament with exactly two Hamiltonian paths?
+\end{problem}
+
+\begin{solution}
+Let $G$ be a tournament. Suppose $G$ is strongly connected. 
+Then $G$ has a Hamiltonian cycle by Theorem 9.8. 
+Therefore, $G$ can never have exactly 2 Hamiltonian paths. (1)
+
+Now suppose $G$ is not strongly connected. 
+We will group vertices of $G$ into strongly connected components 
+$C_1, C_2, \dots, C_k$ ($k \geq 2$). 
+This can be done because a group of vertices in the same 
+strongly connected component forms an equivalence class. 
+
+Every edge from a vertex in $C_i$ to a vertex in $C_j$ 
+must also point in the same direction. 
+Otherwise, from any vertex in $C_i$, we can go to any vertex 
+in $C_j$ and vice versa. 
+Also, if $C_i \to C_j$ and $C_j \to C_k$, then $C_i \to C_k$. 
+
+Because of this transitive property, the components can be 
+listed from left to right so that $C_i \to C_j$ if and only if 
+$C_j$ is on the right of $C_i$. 
+Let's label this sequence from left to right as $C_1, C_2, \dots, C_k$. 
+
+Let $H(G)$ denote the number of Hamiltonian paths in a tournament $G$. 
+We have:
+$$H(G) = H(C_1) \times H(C_2) \times \dots \times H(C_k)$$
+
+Note that each $C_i$ considered on its own is also a tournament. 
+For $H(G) = 2$, exactly one of the $C_i$'s must have $H(C_i) = 2$, 
+and for all other $C_j$'s, $H(C_j) = 1$. 
+But this is impossible by (1).
+
+Therefore, there exist no tournaments with exactly 2 Hamiltonian paths.
+\end{solution}
