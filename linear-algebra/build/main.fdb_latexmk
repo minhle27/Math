@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1777555250.2851 "/Users/mabook/Documents/Math/linear-algebra/main.tex" "build/main.pdf" "main" 1777555251.21908 0
+["pdflatex"] 1777687045.03411 "/Users/mabook/Documents/Math/linear-algebra/main.tex" "build/main.pdf" "main" 1777687046.04746 0
   "../Template/Note/header.tex" 1773777840.07215 4248 6c681b337a170c0ea7480ca11ad982d3 ""
   "../Template/math.tex" 1772331936.1648 392 77f6112c6e7371705b37ef9aa5a04c80 ""
-  "/Users/mabook/Documents/Math/linear-algebra/main.tex" 1777555056.78649 730 4cf73967ff0965ca0fec95eb1ea2ce14 ""
+  "/Users/mabook/Documents/Math/linear-algebra/main.tex" 1777686854.3425 730 94fd89faab8c5cf7668220a00e331d9c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -30,6 +30,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti8.tfm" 1136768653 1504 1747189e0441d1c18f3ea56fafc1c480 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb" 1248133631 36554 b67dc2cfa451409e100b3fcf5f506509 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
@@ -194,12 +195,13 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1763592299 3345739 4e7de2fdf7c7de5ab401c536298ce592 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Figures/planes.png" 1775958935.43112 191096 a681cf402fc9bebb75935aa26ae39826 ""
-  "build/main.aux" 1777555251.15033 282 d7d280cac95485aad24fa249b18eb560 "pdflatex"
-  "build/main.out" 1777555250.8663 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1777555056.78649 730 4cf73967ff0965ca0fec95eb1ea2ce14 ""
+  "build/main.aux" 1777687045.97441 322 06b8ab18bde911e13ef09dc367eb7f26 "pdflatex"
+  "build/main.out" 1777687045.65495 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1777686854.3425 730 94fd89faab8c5cf7668220a00e331d9c ""
   "problems/p1.tex" 1775961848.09092 1156 35c4ac232c3f3b3fd442f864c2f177bb ""
   "problems/p2.tex" 1776205815.97956 1597 640792ae5ecc2629a094024d7a5bb264 ""
   "problems/p3.tex" 1777555250.13868 752 fb183614c743ff9d1f09ff4407af30a7 ""
+  "problems/p4.tex" 1777687044.87449 1674 0910f6e9947bada9c1cc25c6a5ad1ffe ""
   (generated)
   "build/main.aux"
   "build/main.log"

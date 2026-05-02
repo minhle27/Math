@@ -1,0 +1,38 @@
+\begin{problem}{}{}{Linear Algebra Done Right - Ex.16 p.49}
+Suppose \(V\) is finite-dimensional and \(U\) is a subspace of \(V\)
+with \(U \ne V\). Let \(n = \dim V\) and \(m = \dim U\).
+Prove that there exist \(n - m\) subspaces of \(V\), each of dimension
+\(n - 1\), whose intersection equals \(U\).
+\end{problem}
+
+\begin{solution}
+    Let $u_1, u_2, \dots, u_m$ be a basis of $U$. This list can be
+    extended to a basis of $V$ by adjoining $n-m$ additional
+    vectors (by Theorem 2.32), say $w_1, w_2, \dots, w_{n-m}$.
+    We denote this extended list as $L$.
+
+    Let $V_i \ (1 \leq i \leq n-m)$ be the subspace spanned by $L$
+    without including $w_i$. Clearly $\dim V_i = n-1$ and
+    $\bigcap_{i=1}^{n-m} V_i$ is also a subspace that contains $U$.
+
+    Consider $v \in \bigcap_{i=1}^{n-m} V_i$. We have:
+    \begin{align*}
+        a_1 u_1 + a_2 u_2 + \dots + a_m u_m + b_2 w_2 + b_3 w_3 + \dots \\
+        + b_{n-m} w_{n-m} = v \quad \text{(since } v \in V_1 \text{)}
+    \end{align*}
+    \begin{align*}
+        c_1 u_1 + c_2 u_2 + \dots + c_m u_m + d_1 w_1 + d_3 w_3 + d_4 w_4 \\
+        + \dots + d_{n-m} w_{n-m} = v \quad \text{(since } v \in V_2 \text{)}
+    \end{align*}
+    By subtracting, we have:
+    \begin{multline*}
+        (a_1 - c_1)u_1 + (a_2 - c_2)u_2 + \dots + (a_m - c_m)u_m - d_1 w_1 \\
+        + (b_2 - d_2)w_2 + b_3 w_3 + \dots + (b_{n-m} - d_{n-m})w_{n-m} = 0
+    \end{multline*}
+
+    Since $L$ is a list of independent vectors and by repeating this
+    process, this implies that all coefficients for $w_i$'s are $0$
+    and $v$ is uniquely represented in the basis of $U$.
+
+    We conclude that $\bigcap_{i=1}^{n-m} V_i = U$.
+\end{solution}

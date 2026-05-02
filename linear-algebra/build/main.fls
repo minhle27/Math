@@ -337,11 +337,15 @@ INPUT problems/p2.tex
 INPUT ./problems/p3.tex
 INPUT ./problems/p3.tex
 INPUT problems/p3.tex
+INPUT ./problems/p4.tex
+INPUT ./problems/p4.tex
+INPUT problems/p4.tex
 INPUT build/main.aux
 INPUT build/main.out
 INPUT build/main.out
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
