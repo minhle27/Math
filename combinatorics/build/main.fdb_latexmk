@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1777644539.02717 "/Users/mabook/Documents/Math/combinatorics/main.tex" "build/main.pdf" "main" 1777644539.84331 0
+["pdflatex"] 1777999914.6065 "/Users/mabook/Documents/Math/combinatorics/main.tex" "build/main.pdf" "main" 1777999915.46095 0
   "../Template/Note/header.tex" 1773777840.07215 4248 6c681b337a170c0ea7480ca11ad982d3 ""
   "../Template/math.tex" 1772331936.1648 392 77f6112c6e7371705b37ef9aa5a04c80 ""
-  "/Users/mabook/Documents/Math/combinatorics/main.tex" 1777644469.38193 732 f9c1628eb78fd67e1f0d6df26bf630a0 ""
+  "/Users/mabook/Documents/Math/combinatorics/main.tex" 1777999787.13533 732 f9c1628eb78fd67e1f0d6df26bf630a0 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -195,11 +195,12 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1763592299 3345739 4e7de2fdf7c7de5ab401c536298ce592 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Figures/cover.jpg" 1777580578.40295 63931 9a0a7f1c756fda6024d220bb90ecf1b8 ""
-  "build/main.aux" 1777644539.77627 242 13261fcf0a64b3d0e1b0cb09a7f61eaf "pdflatex"
-  "build/main.out" 1777644539.55596 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1777644469.38193 732 f9c1628eb78fd67e1f0d6df26bf630a0 ""
+  "build/main.aux" 1777999915.39505 282 d7d280cac95485aad24fa249b18eb560 "pdflatex"
+  "build/main.out" 1777999915.15483 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1777999787.13533 732 f9c1628eb78fd67e1f0d6df26bf630a0 ""
   "problems/p1.tex" 1777582534.50121 1647 563aaaafc5dff742cd284d5c6e7c9280 ""
   "problems/p2.tex" 1777644538.02476 1525 7ad3efd216fdcd703df04fe9ec005ff4 ""
+  "problems/p3.tex" 1777999914.48529 816 73fc22528376415a4f95c9f5fec696a5 ""
   (generated)
   "build/main.aux"
   "build/main.log"

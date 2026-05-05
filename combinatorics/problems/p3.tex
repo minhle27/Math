@@ -1,0 +1,20 @@
+\begin{problem}{}{}{A Walk Through Combinatorics - Ch.9 Ex.1 p.225}
+    Let $G$ be a loopless undirected graph. Prove that the edges of $G$ 
+    can be directed so that no directed cycle is formed.
+\end{problem}
+
+\begin{solution}
+Let $G$ be a graph on $n$ vertices. We need to show the 
+edges of $G$ can be directed in such a way that no directed cycle 
+is formed. Let's label vertices from 1 to $n$. 
+
+First, make every of $n-1$ edges connected to 1 be an out edge. 
+It follows that no possible directed cycle can start from 1. 
+
+Now, consider all remaining $n-2$ undirected edges connected to 2 
+and make each of them to be an out edge. It also follows that no 
+directed cycle can start from 2. 
+
+Similarly, continue with this labelling scheme, no directed cycle 
+can start from any of the vertices.
+\end{solution}
