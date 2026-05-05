@@ -1,0 +1,51 @@
+\begin{problem}{}{}{Linear Algebra Done Right - Ex.13 p.58}
+Suppose \(V\) is finite-dimensional. Prove that every linear map on a
+subspace of \(V\) can be extended to a linear map on \(V\). In other words,
+show that if \(U\) is a subspace of \(V\) and
+\(S \in \mathcal{L}(U,W)\), then there exists
+\(T \in \mathcal{L}(V,W)\) such that \( Tu = Su\)
+for all \(u \in U\).
+\end{problem}
+
+\begin{solution}
+Let \(U\) be a subspace of \(V\), let \(S \in \mathcal{L}(U,W)\),
+and let \(u_1,u_2,\dots,u_n\) be a basis of \(U\). By Theorem 2.32,
+this list can be extended to a basis of \(V\):
+\[
+    u_1,u_2,\dots,u_n,v_{n+1},v_{n+2},\dots,v_m .
+\]
+
+For \(1 \leq i \leq n\), let
+\[
+    w_i = Su_i.
+\]
+Choose arbitrary vectors \(w_{n+1},w_{n+2},\dots,w_m \in W\).
+By the linear map lemma, there exists a unique
+\(T \in \mathcal{L}(V,W)\) such that
+\[
+    Tu_1 = w_1 = Su_1,\quad \dots,\quad Tu_n = w_n = Su_n,
+\]
+and
+\[
+    Tv_{n+1} = w_{n+1},\quad \dots,\quad Tv_m = w_m.
+\]
+
+Now let \(u \in U\). Since \(u_1,\dots,u_n\) is a basis of \(U\),
+there exist scalars \(a_1,\dots,a_n\) such that
+\[
+    u = a_1u_1 + a_2u_2 + \cdots + a_nu_n.
+\]
+Thus
+\[
+\begin{aligned}
+    Tu
+    &= T(a_1u_1 + a_2u_2 + \cdots + a_nu_n) \\
+    &= a_1Tu_1 + a_2Tu_2 + \cdots + a_nTu_n \\
+    &= a_1Su_1 + a_2Su_2 + \cdots + a_nSu_n \\
+    &= S(a_1u_1 + a_2u_2 + \cdots + a_nu_n) \\
+    &= Su.
+\end{aligned}
+\]
+Therefore, \(Tu = Su\) for all \(u \in U\), so \(T\) is an extension
+of \(S\) to \(V\).
+\end{solution}
