@@ -1,0 +1,39 @@
+\begin{problem}{}{}{Linear Algebra Done Right - Ex.18 p.67}
+Suppose \(V\) and \(W\) are finite-dimensional and that \(U\) is a subspace
+of \(V\). Prove that there exists \(T \in \mathcal{L}(V, W)\) such that
+\(\operatorname{null} T = U\) if and only if
+\(
+\dim U \ge \dim V - \dim W.
+\)
+\end{problem}
+
+\begin{solution}
+($\Rightarrow$) Suppose there exists $T \in \mathcal{L}(V,W)$ such that $\text{null } T = U$. 
+By the fundamental theorem of linear maps, we have:
+\[ \dim V = \dim \text{null } T + \dim \text{range } T \]
+\[ \Rightarrow \dim U = \dim V - \dim \text{range } T \ge \dim V - \dim W \]
+
+($\Leftarrow$) Suppose $U$ is a subspace of $V$ such that $\dim U \ge \dim V - \dim W$.
+Let $u_1, u_2, \dots, u_n$ be a basis of $U$. 
+This list can be extended to $u_1, u_2, \dots, u_n, v_1, v_2, \dots, v_m$ 
+to be a basis of $V \Rightarrow \dim V = m + n$.
+
+We have $\dim U \ge \dim V - \dim W \Rightarrow \dim W \ge \dim V - \dim U = m$.
+Therefore, we can let $w_1, w_2, \dots, w_m$ be an independent list of vectors in $W$.
+Define $T: V \to W$ as:
+\[ T(c_1u_1 + \dots + c_nu_n + d_1v_1 + \dots + d_mv_m) = d_1w_1 + d_2w_2 + \dots + d_mw_m \]
+
+It is easy to verify that $T$ is a linear map by checking $T(u+v) = T(u)+T(v)$ 
+and $T(\lambda u) = \lambda T(u)$, $\forall u,v \in V$.
+
+We have for all $u \in U$, 
+$Tu = T(c_1u_1 + \dots + c_nu_n) = 0w_1 + \dots + 0w_m = 0$
+$\Rightarrow u \in \text{null } T \Rightarrow U \subseteq \text{null } T$.
+
+Now, let $u \in \text{null } T$. We have $Tu = 0$
+$\Rightarrow d_1 = d_2 = \dots = d_m = 0$ since $w_1, w_2, \dots, w_m$ are independent.
+Thus, $u$ can be expressed as $c_1u_1 + c_2u_2 + \dots + c_nu_n$ 
+$\Rightarrow u \in U \Rightarrow \text{null } T \subseteq U$.
+
+Therefore, $U = \text{null } T$.
+\end{solution}
