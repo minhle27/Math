@@ -1,0 +1,19 @@
+\begin{problem}{}{}{A Walk Through Combinatorics - Ch.9 Ex.3 p.225}
+Let \(G\) be a simple graph on 10 vertices and 28 edges. Prove that \(G\)
+contains a cycle of length 4.
+\end{problem}
+
+\begin{solution}
+    It seems like we are having too many edges so that we can always form
+    a cycle of length 4. Saying that there always exists a cycle of length 4 is equivalent to
+    saying that there always exists two vertices A and B such that the intersection of their
+    set of neighbors has at least two vertices. In other words, we want to find two vertices
+    A and B such that there are at least two or more vertices that connect to both A and B.
+
+    So why there always exists such two vertices A and B? The intuition here is that if A connects
+    to a lot of neighbors and B also has a lot of neighbors then it's likely that we can find
+    at least two vertices connecting to both. So let A and B be two vertices with the highest degrees.
+    Since G has 28 edges, sum of all degrees of vertices = 56. It follows that \(deg(A) + deg(B) \ge 12\). 
+    Even if there is an edge between A and B, there are still at least 10 edges between other 
+    8 points and A or B. This implies at least two or more vertices that connect to both A and B.
+\end{solution}
