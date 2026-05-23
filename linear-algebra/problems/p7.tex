@@ -1,0 +1,27 @@
+\begin{problem}{}{}{Source: Linear Algebra Done Right - Ex.15 p.66}
+Suppose there exists a linear map on $V$ whose null space and range
+are both finite-dimensional. Prove that $V$ is finite-dimensional.
+\end{problem}
+
+\begin{solution}
+    Let $u_1, u_2, \dots, u_m$ be a basis of $\text{null } T$ and $v_1, v_2, \dots, v_n$
+    be a basis of $\text{range } T$. Let $w_1, w_2, \dots, w_n \in V$ such that
+    $v_1 = Tw_1, v_2 = Tw_2, \dots, v_n = Tw_n$.
+
+    For any $z \in V$, we have:
+    \begin{align*}
+        Tz & = a_1 Tw_1 + a_2 Tw_2 + \dots + a_n Tw_n \\
+           & = T(a_1 w_1 + a_2 w_2 + \dots + a_n w_n)
+    \end{align*}
+
+    Let $u = z - a_1 w_1 - a_2 w_2 - \dots - a_n w_n$
+    $\implies Tu = 0 \implies u \in \text{null } T$
+
+    $\implies u = b_1 u_1 + b_2 u_2 + \dots + b_m u_m$
+
+    $\implies z = a_1 w_1 + a_2 w_2 + \dots + a_n w_n + b_1 u_1 + b_2 u_2 + \dots + b_m u_m$
+
+    This implies that the list $u_1, u_2, \dots, u_m, w_1, w_2, \dots, w_n$ spans $V$.
+
+    Therefore, $V$ is finite dimensional.
+\end{solution}
