@@ -1,0 +1,29 @@
+\begin{problem}{}{}{Linear Algebra Done Right - Ex.23 p.67}
+Suppose \(U\) and \(V\) are finite-dimensional vector spaces and
+\(S \in \mathcal{L}(V,W)\) and \(T \in \mathcal{L}(U,V)\).
+Prove that
+\[
+    \dim \operatorname{range} ST
+    \leq
+    \min\{\dim \operatorname{range} S,\,
+    \dim \operatorname{range} T\}.
+\]
+\end{problem}
+
+\begin{solution}
+    We have $\operatorname{range} ST$ is a subspace of $\operatorname{range} S$.
+    Therefore,
+    \[ \dim \operatorname{range} ST \leq \dim \operatorname{range} S. \]
+
+    Note that the restriction of $S$ to $\operatorname{range} T$,
+    denoted $S|_{\operatorname{range} T}$, is in $\mathcal{L}(\operatorname{range} T, W)$.
+    By Thm 3.21, we have:
+    \begin{align*}
+        \dim \operatorname{range} T & = \dim \operatorname{null} (S|_{\operatorname{range} T})
+        + \dim \operatorname{range} (S|_{\operatorname{range} T})                                                             \\
+                                    & = \dim \operatorname{null} (S|_{\operatorname{range} T}) + \dim \operatorname{range} ST \\
+                                    & \geq \dim \operatorname{range} ST
+    \end{align*}
+    Therefore,
+    \[ \dim \operatorname{range} ST \leq \min \{ \dim \operatorname{range} S, \dim \operatorname{range} T \}. \]
+\end{solution}

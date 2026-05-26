@@ -352,6 +352,9 @@ INPUT problems/p7.tex
 INPUT ./problems/p8.tex
 INPUT ./problems/p8.tex
 INPUT problems/p8.tex
+INPUT ./problems/p9.tex
+INPUT ./problems/p9.tex
+INPUT problems/p9.tex
 INPUT build/main.aux
 INPUT build/main.out
 INPUT build/main.out
