@@ -1,0 +1,24 @@
+\begin{problem}{}{}{Linear Algebra Done Right - Ex.15 p.58}
+Suppose $v_1,\ldots,v_m$ is a linearly dependent list of vectors in $V$.
+Suppose also that $W \ne \{0\}$. Prove that there exist
+$w_1,\ldots,w_m \in W$ such that no $T \in \mathcal{L}(V,W)$
+satisfies $Tv_k = w_k$ for each $k = 1,\ldots,m$.
+\end{problem}
+
+\begin{solution}
+    Consider scalars $a_1, \dots, a_m$ such that
+    $a_1 v_1 + \dots + a_m v_m = 0$. Since $v_1, \dots, v_m$ is linearly dependent,
+    there is an $a_j$ such that $a_j \neq 0$. Choose $w_1, \dots, w_m \in W$ such that $w_i = 0$
+    for all $i \neq j$ and $w_j \neq 0$.
+
+    Suppose there exists $T \in \mathcal{L}(V, W)$ satisfying
+    $T v_k = w_k$ for each $k = 1, \dots, m$.
+
+    We have:
+    \[
+        T(a_1 v_1 + \dots + a_m v_m) = 0 = a_1 w_1 + \dots + a_m w_m = a_j w_j.
+    \]
+
+    This contradicts the fact that $a_j w_j \neq 0$.
+    We complete the proof.
+\end{solution}

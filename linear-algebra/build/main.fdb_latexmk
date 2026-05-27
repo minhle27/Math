@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1779835657.34058 "/Users/mabook/Documents/Math/linear-algebra/main.tex" "build/main.pdf" "main" 1779835658.64835 0
+["pdflatex"] 1779849811.77036 "/Users/mabook/Documents/Math/linear-algebra/main.tex" "build/main.pdf" "main" 1779849812.9131 0
   "../Template/Note/header.tex" 1773777840.07215 4248 6c681b337a170c0ea7480ca11ad982d3 ""
   "../Template/math.tex" 1772331936.1648 392 77f6112c6e7371705b37ef9aa5a04c80 ""
-  "/Users/mabook/Documents/Math/linear-algebra/main.tex" 1779835559.94029 730 a3bfadeb9bd760c96a514ba44be42328 ""
+  "/Users/mabook/Documents/Math/linear-algebra/main.tex" 1779849731.51508 731 23255d5a2a3dbb37fff625a3747be21a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -195,10 +195,11 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1763592299 3345739 4e7de2fdf7c7de5ab401c536298ce592 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Figures/planes.png" 1775958935.43112 191096 a681cf402fc9bebb75935aa26ae39826 ""
-  "build/main.aux" 1779835658.57877 522 0ec36350a637bb199a75b882304d4164 "pdflatex"
-  "build/main.out" 1779835658.00757 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1779835559.94029 730 a3bfadeb9bd760c96a514ba44be42328 ""
+  "build/main.aux" 1779849812.84653 564 74306ed1131959f0c54a0ce0b2d34195 "pdflatex"
+  "build/main.out" 1779849812.35624 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1779849731.51508 731 23255d5a2a3dbb37fff625a3747be21a ""
   "problems/p1.tex" 1775961848.09092 1156 35c4ac232c3f3b3fd442f864c2f177bb ""
+  "problems/p10.tex" 1779849811.57267 915 9108b52a6cecea4ec4977b634ccd4404 ""
   "problems/p2.tex" 1776205815.97956 1597 640792ae5ecc2629a094024d7a5bb264 ""
   "problems/p3.tex" 1777555250.13868 752 fb183614c743ff9d1f09ff4407af30a7 ""
   "problems/p4.tex" 1777687044.87449 1674 0910f6e9947bada9c1cc25c6a5ad1ffe ""
